@@ -16,6 +16,9 @@ public class FlockManager : MonoBehaviour
 
     private void Update()
     {
+        FlockAgentOcttree.instance.CreateNewTree();
+        AddAgentsToOcttree();
+
         List<FlockAgent> context = new List<FlockAgent>(8);
         foreach (FlockAgent agent in agents)
         {
@@ -25,20 +28,36 @@ public class FlockManager : MonoBehaviour
         }
     }
 
+    private void AddAgentsToOcttree()
+    {
+        if (!FlockAgentOcttree.instance)
+            return;
+
+        for(int i = 0; i < agents.Count; i++)
+        {
+            FlockAgentOcttree.instance.AddAgent(agents[i]);
+        }
+    }
+
 
     private void GetContext(FlockAgent agent, ref List<FlockAgent> context)
     {
-        Collider[] agentsInArea = Physics.OverlapSphere(agent.position, agent.sightRadius);
+        if (!FlockAgentOcttree.instance)
+            return;
 
-        foreach(Collider other in agentsInArea)
-        {
-            if (other.TryGetComponent(out FlockAgent otherAgent))
-            {
-                if(Vector3.Dot(agent.thisTransform.forward, (otherAgent.position - agent.position).normalized) < -.4f)
-                    return;
 
-                context.Add(otherAgent);
-            }
-        }
+
+        //Collider[] agentsInArea = Physics.OverlapSphere(agent.position, agent.sightRadius);
+        //
+        //foreach(Collider other in agentsInArea)
+        //{
+        //    if (other.TryGetComponent(out FlockAgent otherAgent))
+        //    {
+        //        if(Vector3.Dot(agent.thisTransform.forward, (otherAgent.position - agent.position).normalized) < agent.viewAngleCos)
+        //            return;
+        //
+        //        context.Add(otherAgent);
+        //    }
+        //}
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -238,6 +238,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &42103276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 42103278}
+  - component: {fileID: 42103277}
+  m_Layer: 0
+  m_Name: BirdsOcttree
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &42103277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42103276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59399bc949b30df4fb5918da3b3a1a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rootBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  _rootSize: {x: 50, y: 50, z: 50}
+  capacity: 4
+  maxLevels: 6
+--- !u!4 &42103278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42103276}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &63098643
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,11 +476,13 @@ MonoBehaviour:
   velocity: {x: 3, y: 0, z: 0}
   _maxSpeed: 15
   sightRadius: 5
+  viewAngle: 160
+  viewAngleCos: -0.9756293
   steeringBehaviours:
   - behaviour: {fileID: 11400000, guid: ddf2f28bf7ec1ba428f47c1a8ad710c8, type: 2}
-    weight: 1
-  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
     weight: 3
+  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
+    weight: 1
 --- !u!65 &142153543
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -564,11 +616,13 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   _maxSpeed: 15
   sightRadius: 5
+  viewAngle: 160
+  viewAngleCos: -0.9756293
   steeringBehaviours:
   - behaviour: {fileID: 11400000, guid: ddf2f28bf7ec1ba428f47c1a8ad710c8, type: 2}
-    weight: 1
-  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
     weight: 3
+  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
+    weight: 1
 --- !u!65 &318231205
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -670,11 +724,13 @@ MonoBehaviour:
   velocity: {x: 3, y: 0, z: 0}
   _maxSpeed: 15
   sightRadius: 5
+  viewAngle: 160
+  viewAngleCos: -0.9756293
   steeringBehaviours:
   - behaviour: {fileID: 11400000, guid: ddf2f28bf7ec1ba428f47c1a8ad710c8, type: 2}
-    weight: 1
-  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
     weight: 3
+  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
+    weight: 1
 --- !u!65 &383289753
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -983,11 +1039,13 @@ MonoBehaviour:
   velocity: {x: 3, y: 0, z: 0}
   _maxSpeed: 15
   sightRadius: 5
+  viewAngle: 160
+  viewAngleCos: -0.9756293
   steeringBehaviours:
   - behaviour: {fileID: 11400000, guid: ddf2f28bf7ec1ba428f47c1a8ad710c8, type: 2}
-    weight: 1
-  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
     weight: 3
+  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
+    weight: 1
 --- !u!65 &569583379
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1218,11 +1276,13 @@ MonoBehaviour:
   velocity: {x: 3, y: 0, z: 0}
   _maxSpeed: 15
   sightRadius: 5
+  viewAngle: 160
+  viewAngleCos: -0.9756293
   steeringBehaviours:
   - behaviour: {fileID: 11400000, guid: ddf2f28bf7ec1ba428f47c1a8ad710c8, type: 2}
-    weight: 1
-  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
     weight: 3
+  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
+    weight: 1
 --- !u!65 &743713089
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2003,11 +2063,13 @@ MonoBehaviour:
   velocity: {x: 3, y: 0, z: 0}
   _maxSpeed: 15
   sightRadius: 5
+  viewAngle: 160
+  viewAngleCos: -0.9756293
   steeringBehaviours:
   - behaviour: {fileID: 11400000, guid: ddf2f28bf7ec1ba428f47c1a8ad710c8, type: 2}
-    weight: 1
-  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
     weight: 3
+  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
+    weight: 1
 --- !u!65 &1263109795
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2270,11 +2332,13 @@ MonoBehaviour:
   velocity: {x: 3, y: 0, z: 0}
   _maxSpeed: 15
   sightRadius: 5
+  viewAngle: 160
+  viewAngleCos: -0.9756293
   steeringBehaviours:
   - behaviour: {fileID: 11400000, guid: ddf2f28bf7ec1ba428f47c1a8ad710c8, type: 2}
-    weight: 1
-  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
     weight: 3
+  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
+    weight: 1
 --- !u!65 &1290961442
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2376,11 +2440,13 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   _maxSpeed: 15
   sightRadius: 5
+  viewAngle: 160
+  viewAngleCos: -0.9756293
   steeringBehaviours:
   - behaviour: {fileID: 11400000, guid: ddf2f28bf7ec1ba428f47c1a8ad710c8, type: 2}
-    weight: 1
-  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
     weight: 3
+  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
+    weight: 1
 --- !u!65 &1381594708
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2799,11 +2865,13 @@ MonoBehaviour:
   velocity: {x: 3, y: 0, z: 0}
   _maxSpeed: 15
   sightRadius: 5
+  viewAngle: 160
+  viewAngleCos: -0.9756293
   steeringBehaviours:
   - behaviour: {fileID: 11400000, guid: ddf2f28bf7ec1ba428f47c1a8ad710c8, type: 2}
-    weight: 1
-  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
     weight: 3
+  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
+    weight: 1
 --- !u!65 &1556604693
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2937,11 +3005,13 @@ MonoBehaviour:
   velocity: {x: 3, y: 0, z: 0}
   _maxSpeed: 15
   sightRadius: 5
+  viewAngle: 160
+  viewAngleCos: -0.9756293
   steeringBehaviours:
   - behaviour: {fileID: 11400000, guid: ddf2f28bf7ec1ba428f47c1a8ad710c8, type: 2}
-    weight: 1
-  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
     weight: 3
+  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
+    weight: 1
 --- !u!65 &1614812737
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3172,11 +3242,13 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   _maxSpeed: 15
   sightRadius: 5
+  viewAngle: 160
+  viewAngleCos: -0.9756293
   steeringBehaviours:
   - behaviour: {fileID: 11400000, guid: ddf2f28bf7ec1ba428f47c1a8ad710c8, type: 2}
-    weight: 1
-  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
     weight: 3
+  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
+    weight: 1
 --- !u!65 &1729809647
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3548,11 +3620,13 @@ MonoBehaviour:
   velocity: {x: 3, y: 0, z: 0}
   _maxSpeed: 15
   sightRadius: 5
+  viewAngle: 160
+  viewAngleCos: -0.9756293
   steeringBehaviours:
   - behaviour: {fileID: 11400000, guid: ddf2f28bf7ec1ba428f47c1a8ad710c8, type: 2}
-    weight: 1
-  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
     weight: 3
+  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
+    weight: 1
 --- !u!65 &1874455047
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3654,11 +3728,13 @@ MonoBehaviour:
   velocity: {x: 3, y: 0, z: 0}
   _maxSpeed: 15
   sightRadius: 5
+  viewAngle: 160
+  viewAngleCos: -0.9756293
   steeringBehaviours:
   - behaviour: {fileID: 11400000, guid: ddf2f28bf7ec1ba428f47c1a8ad710c8, type: 2}
-    weight: 1
-  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
     weight: 3
+  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
+    weight: 1
 --- !u!65 &1933280666
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3824,11 +3900,13 @@ MonoBehaviour:
   velocity: {x: 3, y: 0, z: 0}
   _maxSpeed: 15
   sightRadius: 5
+  viewAngle: 160
+  viewAngleCos: -0.9756293
   steeringBehaviours:
   - behaviour: {fileID: 11400000, guid: ddf2f28bf7ec1ba428f47c1a8ad710c8, type: 2}
-    weight: 1
-  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
     weight: 3
+  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
+    weight: 1
 --- !u!65 &2050761491
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3930,11 +4008,13 @@ MonoBehaviour:
   velocity: {x: 3, y: 0, z: 0}
   _maxSpeed: 15
   sightRadius: 5
+  viewAngle: 160
+  viewAngleCos: -0.9756293
   steeringBehaviours:
   - behaviour: {fileID: 11400000, guid: ddf2f28bf7ec1ba428f47c1a8ad710c8, type: 2}
-    weight: 1
-  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
     weight: 3
+  - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
+    weight: 1
 --- !u!65 &2089115465
 BoxCollider:
   m_ObjectHideFlags: 0

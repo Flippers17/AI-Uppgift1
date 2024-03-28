@@ -15,10 +15,15 @@ public class FlockAgent : MonoBehaviour
     private float _maxSpeed = 5f;
 
     public float sightRadius = 2f;
+    [SerializeField, Range(0f, 180f)]
+    private float viewAngle = 180;
+    [HideInInspector, SerializeField]
+    public float viewAngleCos = 0f;
 
     public List<SteeringBehaviourItems> steeringBehaviours = new List<SteeringBehaviourItems>();
 
     private float _totalWeight = 1f;
+
 
 
     private void OnEnable()
@@ -39,6 +44,8 @@ public class FlockAgent : MonoBehaviour
                 _totalWeight += steeringBehaviours[i].weight;
             }
         }
+
+        viewAngleCos = Mathf.Cos(viewAngle);
     }
 
 

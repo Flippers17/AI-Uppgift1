@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu]
 public class AlignmentBehaviour : SteeringBehaviour
 {
+    [SerializeField]
+    private float _alignmentForce = 1f;
     public override Vector3 CalculateMovement(FlockAgent agentToMove, List<FlockAgent> context)
     {
         int contextCount = context.Count;
@@ -19,6 +21,7 @@ public class AlignmentBehaviour : SteeringBehaviour
         }
 
         averageVelocity /= contextCount;
+        averageVelocity *= _alignmentForce;
 
         return averageVelocity;
     }
