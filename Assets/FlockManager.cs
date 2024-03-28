@@ -45,7 +45,7 @@ public class FlockManager : MonoBehaviour
         if (!FlockAgentOcttree.instance)
             return;
 
-
+        FlockAgentOcttree.instance.GetAgentsInNode(agent, ref context);
 
         //Collider[] agentsInArea = Physics.OverlapSphere(agent.position, agent.sightRadius);
         //
@@ -59,5 +59,6 @@ public class FlockManager : MonoBehaviour
         //        context.Add(otherAgent);
         //    }
         //}
+        //Debug.Log(agent.name + " has " + context.Count + " agents in range");
     }
 }

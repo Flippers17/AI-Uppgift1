@@ -17,14 +17,15 @@ public class SeparationBehaviour : SteeringBehaviour
 
         Vector3 separationVector = Vector3.zero;
 
+        Vector3 currentVector;
+
         for(int i = 0; i < contextCount; i++)
         {
-            Vector3 currentVector = (context[i].position - agentToMove.position);
-            //Debug.DrawLine(agentToMove.position, agentToMove.position + currentVector);
-            //Debug.Log(currentVector.sqrMagnitude);
+            currentVector = (context[i].position - agentToMove.position);
 
-            if(currentVector.sqrMagnitude != 0)
-                separationVector -=  currentVector * (separationStrength/currentVector.sqrMagnitude);
+            float currentSquareMagnitude = currentVector.sqrMagnitude;
+            if (currentSquareMagnitude != 0)
+                separationVector -= currentVector * (separationStrength / currentSquareMagnitude);
         }
 
         separationVector/= contextCount;

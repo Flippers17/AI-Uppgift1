@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec7e504bee1629b4b87c060c7128d1b4, type: 3}
-  m_Name: AlignmentBehaviour
+  m_Script: {fileID: 11500000, guid: 8ce89a97bb7fe55429c9c4c801989ff7, type: 3}
+  m_Name: Target Steering Behaviour
   m_EditorClassIdentifier: 
-  _alignmentForce: 100
+  targetBias: 50

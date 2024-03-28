@@ -8,6 +8,8 @@ public class FlockAgent : MonoBehaviour
     public Transform thisTransform;
     [HideInInspector]
     public Vector3 position;
+    [HideInInspector]
+    public Vector3 forward = Vector3.forward;
 
     [HideInInspector]
     public Vector3 velocity;
@@ -24,11 +26,15 @@ public class FlockAgent : MonoBehaviour
 
     private float _totalWeight = 1f;
 
+    [SerializeField]
+    private bool _debugAgent = false;
+    private List<FlockAgent> neighbours = new List<FlockAgent>();
 
 
     private void OnEnable()
     {
         thisTransform = transform;
+        thisTransform.rotation = Quaternion.Euler(Random.Range(0.0f, 180f), Random.Range(0.0f, 180f), Random.Range(0.0f, 180f));
         velocity = thisTransform.forward * _maxSpeed;
         position = thisTransform.position;
         FlockManager.AddAgent(this);
@@ -54,12 +60,23 @@ public class FlockAgent : MonoBehaviour
         thisTransform.position += velocity * Time.deltaTime;
         position = thisTransform.position;
         thisTransform.forward = velocity;
+        forward = thisTransform.forward;
     }
 
     public void CalculateMovement(List<FlockAgent> context)
     {
         float deltaTime = Time.deltaTime;
         Vector3 force = Vector3.zero;
+
+        if (_debugAgent)
+        {
+            neighbours.Clear();
+            for (int i = 0; i < context.Count; i++)
+            {
+                neighbours.Add(context[i]);
+            }
+        }
+        
 
         for(int i = 0; i < steeringBehaviours.Count; i++)
         {
@@ -73,6 +90,21 @@ public class FlockAgent : MonoBehaviour
             newVelocity = newVelocity.normalized * _maxSpeed;
 
         velocity = newVelocity;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if(!_debugAgent)
+            return;
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(position, sightRadius);
+
+        Gizmos.color = Color.red;
+        for(int i = 0; i < neighbours.Count; i++)
+        {
+            Gizmos.DrawWireSphere(neighbours[i].position, .5f);
+        }
     }
 }
 
