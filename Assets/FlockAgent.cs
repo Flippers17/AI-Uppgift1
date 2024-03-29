@@ -22,6 +22,8 @@ public class FlockAgent : MonoBehaviour
     [HideInInspector, SerializeField]
     public float viewAngleCos = 0f;
 
+    public LayerMask avoidanceMask;
+
     //public List<SteeringBehaviourItems> steeringBehaviours = new List<SteeringBehaviourItems>();
 
     //private float _totalWeight = 1f;

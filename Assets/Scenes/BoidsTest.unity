@@ -453,6 +453,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &105792155
@@ -501,6 +506,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
@@ -557,6 +567,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!4 &186174002 stripped
@@ -612,6 +627,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &207944142
@@ -660,6 +680,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
@@ -710,6 +735,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &234678533
@@ -758,6 +788,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (43)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
@@ -820,6 +855,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &272389493
@@ -868,6 +908,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
@@ -948,6 +993,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!4 &314035547 stripped
@@ -1003,6 +1053,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!4 &321384303 stripped
@@ -1057,6 +1112,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (44)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
@@ -1131,6 +1191,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &438997225
@@ -1179,6 +1244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
@@ -1235,6 +1305,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!4 &497454117 stripped
@@ -1290,6 +1365,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &512792585
@@ -1339,6 +1419,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (53)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &530047894
@@ -1387,6 +1472,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
@@ -1528,6 +1618,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!4 &550221750 stripped
@@ -1589,6 +1684,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!4 &586376077 stripped
@@ -1644,6 +1744,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &602726128
@@ -1692,6 +1797,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
@@ -1852,6 +1962,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!4 &714159803 stripped
@@ -1913,6 +2028,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &785853892
@@ -1961,6 +2081,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
@@ -2023,6 +2148,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &815242146
@@ -2071,6 +2201,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (52)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
@@ -2217,6 +2352,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (56)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!4 &947874186 stripped
@@ -2278,6 +2418,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &1051372788
@@ -2326,6 +2471,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
@@ -2388,6 +2538,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &1113411626
@@ -2436,6 +2591,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (59)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
@@ -2492,6 +2652,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &1149580644
@@ -2540,6 +2705,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (57)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
@@ -2596,6 +2766,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &1209022241
@@ -2644,6 +2819,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
@@ -2700,6 +2880,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &1240071477
@@ -2749,6 +2934,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &1253982475
@@ -2797,6 +2987,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
@@ -2864,6 +3059,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
@@ -2944,6 +3144,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &1434554600
@@ -2993,6 +3198,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &1456098569
@@ -3041,6 +3251,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
@@ -3204,6 +3419,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (49)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &1715113350
@@ -3252,6 +3472,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
@@ -3302,6 +3527,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &1759839204
@@ -3351,6 +3581,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (48)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &1772894272
@@ -3399,6 +3634,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
@@ -3494,6 +3734,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1 &1838011480
@@ -3527,13 +3772,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steeringBehaviours:
   - behaviour: {fileID: 11400000, guid: ddf2f28bf7ec1ba428f47c1a8ad710c8, type: 2}
-    weight: 0
+    weight: 1
   - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
     weight: 5
   - behaviour: {fileID: 11400000, guid: 1838a8e03a23f7c429ec11e328e6c4c2, type: 2}
     weight: 3
   - behaviour: {fileID: 11400000, guid: 945cf9c8dc62cc142b65f3849726aa3b, type: 2}
     weight: 5
+  - behaviour: {fileID: 11400000, guid: 60c0d5e64e3fa1340b1897cff2aa9112, type: 2}
+    weight: 8
 --- !u!4 &1838011482
 Transform:
   m_ObjectHideFlags: 0
@@ -3596,6 +3843,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!4 &1855704094 stripped
@@ -3651,6 +3903,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (58)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &1883889168
@@ -3699,6 +3956,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
@@ -3761,6 +4023,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &1934863634
@@ -3810,6 +4077,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (54)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!4 &1940633661 stripped
@@ -3830,6 +4102,103 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1930157419}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1995321667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1995321671}
+  - component: {fileID: 1995321670}
+  - component: {fileID: 1995321669}
+  - component: {fileID: 1995321668}
+  m_Layer: 7
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1995321668
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995321667}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1995321669
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995321667}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1995321670
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995321667}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1995321671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995321667}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2007717682
 GameObject:
   m_ObjectHideFlags: 0
@@ -3966,6 +4335,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &2072455063
@@ -4014,6 +4388,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
@@ -4064,6 +4443,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!1001 &2113973359
@@ -4112,6 +4496,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
@@ -4162,6 +4551,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6caef1c06fc8644479412d87dbc60996, type: 3}
 --- !u!4 &2130656489 stripped
@@ -4211,6 +4605,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657423744327855397, guid: 6caef1c06fc8644479412d87dbc60996,
+        type: 3}
+      propertyPath: _maxSpeed
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3657423744327855398, guid: 6caef1c06fc8644479412d87dbc60996,
         type: 3}

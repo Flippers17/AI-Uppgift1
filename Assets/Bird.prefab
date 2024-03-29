@@ -120,6 +120,9 @@ MonoBehaviour:
   sightRadius: 10
   viewAngle: 160
   viewAngleCos: -0.9756293
+  avoidanceMask:
+    serializedVersion: 2
+    m_Bits: 128
   _debugAgent: 0
 --- !u!54 &3657423744327855392
 Rigidbody:
