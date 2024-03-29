@@ -22,9 +22,9 @@ public class FlockAgent : MonoBehaviour
     [HideInInspector, SerializeField]
     public float viewAngleCos = 0f;
 
-    public List<SteeringBehaviourItems> steeringBehaviours = new List<SteeringBehaviourItems>();
+    //public List<SteeringBehaviourItems> steeringBehaviours = new List<SteeringBehaviourItems>();
 
-    private float _totalWeight = 1f;
+    //private float _totalWeight = 1f;
 
     [SerializeField]
     private bool _debugAgent = false;
@@ -42,14 +42,14 @@ public class FlockAgent : MonoBehaviour
 
     private void OnValidate()
     {
-        if(steeringBehaviours.Count > 0)
-        {
-            _totalWeight = 0;
-            for(int i = 0; i < steeringBehaviours.Count; i++)
-            {
-                _totalWeight += steeringBehaviours[i].weight;
-            }
-        }
+        //if(steeringBehaviours.Count > 0)
+        //{
+        //    _totalWeight = 0;
+        //    for(int i = 0; i < steeringBehaviours.Count; i++)
+        //    {
+        //        _totalWeight += steeringBehaviours[i].weight;
+        //    }
+        //}
 
         viewAngleCos = Mathf.Cos(viewAngle);
     }
@@ -63,7 +63,7 @@ public class FlockAgent : MonoBehaviour
         forward = thisTransform.forward;
     }
 
-    public void CalculateMovement(List<FlockAgent> context)
+    public void CalculateMovement(List<FlockAgent> context, List<SteeringBehaviourItems> behaviours, int behaviourCount, float weightMultiplier)
     {
         float deltaTime = Time.deltaTime;
         Vector3 force = Vector3.zero;
@@ -78,9 +78,9 @@ public class FlockAgent : MonoBehaviour
         }
         
 
-        for(int i = 0; i < steeringBehaviours.Count; i++)
+        for(int i = 0; i < behaviourCount; i++)
         {
-            force += steeringBehaviours[i].behaviour.CalculateMovement(this, context) * steeringBehaviours[i].weight/_totalWeight;
+            force += behaviours[i].behaviour.CalculateMovement(this, context) * behaviours[i].weight * weightMultiplier;
         }
 
         force = force * Time.deltaTime;

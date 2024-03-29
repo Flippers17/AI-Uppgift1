@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ce89a97bb7fe55429c9c4c801989ff7, type: 3}
   m_Name: Target Steering Behaviour
   m_EditorClassIdentifier: 
-  targetBias: 50
+  targetBias: 10

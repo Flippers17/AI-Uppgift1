@@ -7,6 +7,9 @@ public class FlockManager : MonoBehaviour
 
     private static List<FlockAgent> agents = new List<FlockAgent>();
 
+    [SerializeField]
+    private List<SteeringBehaviourItems> steeringBehaviours = new List<SteeringBehaviourItems>();
+
 
     public static void AddAgent(FlockAgent agent)
     {
@@ -19,11 +22,20 @@ public class FlockManager : MonoBehaviour
         FlockAgentOcttree.instance.CreateNewTree();
         AddAgentsToOcttree();
 
+        int behaviourCount = steeringBehaviours.Count;
+        float totalWeight = 0;
+        for(int i = 0; i < behaviourCount; i++)
+        {
+            totalWeight += steeringBehaviours[i].weight;
+        }
+
+        float weightMultiplier = 1 / totalWeight;
+
         List<FlockAgent> context = new List<FlockAgent>(8);
         foreach (FlockAgent agent in agents)
         {
             GetContext(agent, ref context);
-            agent.CalculateMovement(context);
+            agent.CalculateMovement(context, steeringBehaviours, behaviourCount, weightMultiplier);
             context.Clear();
         }
     }
