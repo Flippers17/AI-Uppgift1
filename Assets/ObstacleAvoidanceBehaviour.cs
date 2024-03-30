@@ -32,6 +32,8 @@ public class ObstacleAvoidanceBehaviour : SteeringBehaviour
         float furthestUnobstructedDist = 0f;
         RaycastHit hit;
 
+
+        Vector3 agentPos = agentToMove.position;
         Vector3 currentDir = Vector3.zero;
 
 
@@ -41,9 +43,9 @@ public class ObstacleAvoidanceBehaviour : SteeringBehaviour
             currentDir = agentToMove.thisTransform.TransformDirection(currentDir);
             //Debug.Log(currentDir);
 
-            if (Physics.Raycast(agentToMove.position, currentDir, out hit, agentToMove.sightRadius, agentToMove.avoidanceMask))
+            if (Physics.Raycast(agentPos, currentDir, out hit, agentToMove.sightRadius, agentToMove.avoidanceMask))
             {
-                Debug.DrawRay(agentToMove.position, currentDir * agentToMove.sightRadius, Color.red);
+                //Debug.DrawRay(agentPos, currentDir * agentToMove.sightRadius, Color.red);
                 if (hit.distance > furthestUnobstructedDist)
                 {
                     bestDir = currentDir;
@@ -56,7 +58,7 @@ public class ObstacleAvoidanceBehaviour : SteeringBehaviour
                 if(i == 0)
                     return Vector3.zero;
 
-                Debug.DrawRay(agentToMove.position, currentDir * agentToMove.sightRadius, Color.green);
+                //Debug.DrawRay(agentToMove.position, currentDir * agentToMove.sightRadius, Color.green);
                 return currentDir * avoidanceForce;
             }
         }
