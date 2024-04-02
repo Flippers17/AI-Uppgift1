@@ -24,6 +24,8 @@ public class FlockAgent : MonoBehaviour
 
     public LayerMask avoidanceMask;
 
+    [SerializeField]
+    private bool _addAgentToMainFlock = true;
     //public List<SteeringBehaviourItems> steeringBehaviours = new List<SteeringBehaviourItems>();
 
     //private float _totalWeight = 1f;
@@ -39,7 +41,12 @@ public class FlockAgent : MonoBehaviour
         thisTransform.rotation = Quaternion.Euler(Random.Range(0.0f, 180f), Random.Range(0.0f, 180f), Random.Range(0.0f, 180f));
         velocity = thisTransform.forward * _maxSpeed;
         position = thisTransform.position;
-        FlockManager.AddAgent(this);
+    }
+
+    private void Start()
+    {
+        if (_addAgentToMainFlock)
+            FlockManager.mainFlock.AddAgent(this);
     }
 
     private void OnValidate()

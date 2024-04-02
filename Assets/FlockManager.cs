@@ -5,7 +5,15 @@ using UnityEngine;
 public class FlockManager : MonoBehaviour
 {
 
-    private static List<FlockAgent> agents = new List<FlockAgent>();
+    public static FlockManager mainFlock;
+
+    [SerializeField]
+    private bool _isMainFlock = false;
+
+    [SerializeField]
+    private FlockAgentOcttree _octtree;
+
+    private List<FlockAgent> agents = new List<FlockAgent>();
 
     [SerializeField]
     private BehaviourList behaviourList = null;
@@ -14,8 +22,14 @@ public class FlockManager : MonoBehaviour
     [SerializeField]
     private List<SteeringBehaviourItems> steeringBehaviours = new List<SteeringBehaviourItems>();
 
+    private void OnEnable()
+    {
+        if(_isMainFlock)
+            mainFlock = this;
+    }
 
-    public static void AddAgent(FlockAgent agent)
+
+    public void AddAgent(FlockAgent agent)
     {
         agents.Add(agent);
     }
@@ -107,10 +121,10 @@ public class FlockManager : MonoBehaviour
 
     private void GetContext(FlockAgent agent, ref List<FlockAgent> context)
     {
-        if (!FlockAgentOcttree.instance)
+        if (!_octtree)
             return;
 
-        FlockAgentOcttree.instance.GetAgentsInNode(agent, ref context);
+        _octtree.GetAgentsInNode(agent, ref context);
 
         //Collider[] agentsInArea = Physics.OverlapSphere(agent.position, agent.sightRadius);
         //
