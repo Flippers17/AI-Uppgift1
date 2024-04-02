@@ -13,14 +13,21 @@ public class FlockManager : MonoBehaviour
     [SerializeField]
     private FlockAgentOcttree _octtree;
 
+    [SerializeField]
     private List<FlockAgent> agents = new List<FlockAgent>();
 
-    [SerializeField]
+    [Space(15), SerializeField]
     private BehaviourList behaviourList = null;
 
 
     [SerializeField]
     private List<SteeringBehaviourItems> steeringBehaviours = new List<SteeringBehaviourItems>();
+
+    [SerializeField, Tooltip("If a Target steering behaviour is used, it's target would be this")]
+    private Transform _target;
+    [SerializeField]
+    private TargetSteeringBehaviour _targetSteeringBehaviour;
+
 
     private void OnEnable()
     {
@@ -43,6 +50,9 @@ public class FlockManager : MonoBehaviour
 
     private void HandleMovement()
     {
+        if(_targetSteeringBehaviour)
+            _targetSteeringBehaviour.Target = _target;  
+
         FlockAgentOcttree.instance.CreateNewTree();
         AddAgentsToOcttree();
 
