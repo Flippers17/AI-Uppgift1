@@ -15,10 +15,12 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 _velocity = Vector3.zero;
 
+    private Camera _cam;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _cam = Camera.main;
     }
 
     // Update is called once per frame
@@ -33,9 +35,17 @@ public class PlayerMovement : MonoBehaviour
     {
         _velocity.y = -1;
         Vector2 moveInput = _input.MoveInput();
+        Vector3 forward = _cam.transform.forward;
+        forward.y = 0;
+        forward.Normalize();
 
-        _velocity.x = moveInput.x * _moveSpeed;
-        _velocity.z = moveInput.y * _moveSpeed;
+        Vector3 right = _cam.transform.right;
+        right.y = 0;
+        right.Normalize();
+
+        //_velocity.x = moveInput.x * _moveSpeed;
+        //_velocity.z = moveInput.y * _moveSpeed;
+        _velocity = forward * (moveInput.y * _moveSpeed) + right * (moveInput.x * _moveSpeed);
     }
 
 

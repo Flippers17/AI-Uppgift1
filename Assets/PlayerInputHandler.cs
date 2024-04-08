@@ -15,6 +15,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         _input.actions["Move"].performed += OnMoveInput;
         _input.actions["Move"].canceled += OnMoveInput;
+        LockMouse(true);
     }
 
     private void OnDisable()
@@ -38,5 +39,15 @@ public class PlayerInputHandler : MonoBehaviour
     public Vector2 MoveInput()
     {
         return _moveInput;
+    }
+
+
+
+    public void LockMouse(bool value)
+    {
+        if(value)
+            Cursor.lockState = CursorLockMode.Locked;
+        else
+            Cursor.lockState = CursorLockMode.None;
     }
 }

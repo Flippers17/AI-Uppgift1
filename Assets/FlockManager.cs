@@ -53,7 +53,7 @@ public class FlockManager : MonoBehaviour
         if(_targetSteeringBehaviour)
             _targetSteeringBehaviour.Target = _target;  
 
-        FlockAgentOcttree.instance.CreateNewTree();
+        _octtree.CreateNewTree();
         AddAgentsToOcttree();
 
         float weightMultiplier = GetWeightMultiplier();
@@ -119,12 +119,12 @@ public class FlockManager : MonoBehaviour
 
     private void AddAgentsToOcttree()
     {
-        if (!FlockAgentOcttree.instance)
+        if (!_octtree)
             return;
 
         for(int i = 0; i < agents.Count; i++)
         {
-            FlockAgentOcttree.instance.AddAgent(agents[i]);
+            _octtree.AddAgent(agents[i]);
         }
     }
 
