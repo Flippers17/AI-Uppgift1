@@ -14,14 +14,14 @@ public class FlockManager : MonoBehaviour
     private FlockAgentOcttree _octtree;
 
     [SerializeField]
-    private List<FlockAgent> agents = new List<FlockAgent>();
+    private List<FlockAgent> _agents = new List<FlockAgent>();
 
     [Space(15), SerializeField]
-    private BehaviourList behaviourList = null;
+    private BehaviourList _behaviourList = null;
 
 
     [SerializeField]
-    private List<SteeringBehaviourItems> steeringBehaviours = new List<SteeringBehaviourItems>();
+    private List<SteeringBehaviourItems> _steeringBehaviours = new List<SteeringBehaviourItems>();
 
     [SerializeField, Tooltip("If a Target steering behaviour is used, it's target would be this")]
     private Transform _target;
@@ -38,7 +38,7 @@ public class FlockManager : MonoBehaviour
 
     public void AddAgent(FlockAgent agent)
     {
-        agents.Add(agent);
+        _agents.Add(agent);
     }
 
 
@@ -68,20 +68,20 @@ public class FlockManager : MonoBehaviour
         float totalWeight = 0;
 
 
-        if (!behaviourList)
+        if (!_behaviourList)
         {
-            behaviourCount = steeringBehaviours.Count;
+            behaviourCount = _steeringBehaviours.Count;
             for (int i = 0; i < behaviourCount; i++)
             {
-                totalWeight += steeringBehaviours[i].weight;
+                totalWeight += _steeringBehaviours[i].weight;
             }
         }
         else
         {
-            behaviourCount = behaviourList.items.Count;
+            behaviourCount = _behaviourList.items.Count;
             for (int i = 0; i < behaviourCount; i++)
             {
-                totalWeight += behaviourList.items[i].weight;
+                totalWeight += _behaviourList.items[i].weight;
             }
         }
         
@@ -94,23 +94,23 @@ public class FlockManager : MonoBehaviour
     {
         List<FlockAgent> context = new List<FlockAgent>(8);
 
-        if(behaviourList)
+        if(_behaviourList)
         {
-            int behaviourCount = behaviourList.items.Count;
-            foreach (FlockAgent agent in agents)
+            int behaviourCount = _behaviourList.items.Count;
+            foreach (FlockAgent agent in _agents)
             {
                 GetContext(agent, ref context);
-                agent.CalculateMovement(context, behaviourList.items, behaviourCount, weightMultiplier);
+                agent.CalculateMovement(context, _behaviourList.items, behaviourCount, weightMultiplier);
                 context.Clear();
             }
         }
         else
         {
-            int behaviourCount = steeringBehaviours.Count;
-            foreach (FlockAgent agent in agents)
+            int behaviourCount = _steeringBehaviours.Count;
+            foreach (FlockAgent agent in _agents)
             {
                 GetContext(agent, ref context);
-                agent.CalculateMovement(context, steeringBehaviours, behaviourCount, weightMultiplier);
+                agent.CalculateMovement(context, _steeringBehaviours, behaviourCount, weightMultiplier);
                 context.Clear();
             }
         }
@@ -122,9 +122,9 @@ public class FlockManager : MonoBehaviour
         if (!_octtree)
             return;
 
-        for(int i = 0; i < agents.Count; i++)
+        for(int i = 0; i < _agents.Count; i++)
         {
-            _octtree.AddAgent(agents[i]);
+            _octtree.AddAgent(_agents[i]);
         }
     }
 
@@ -149,5 +149,16 @@ public class FlockManager : MonoBehaviour
         //    }
         //}
         //Debug.Log(agent.name + " has " + context.Count + " agents in range");
+    }
+
+    public void SetTarget(Transform target)
+    {
+        _target = target;
+    }
+
+
+    public void SetSteeringBehaviour(BehaviourList behaviourList)
+    {
+        _behaviourList = behaviourList;
     }
 }
