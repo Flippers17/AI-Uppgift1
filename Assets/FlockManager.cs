@@ -25,8 +25,6 @@ public class FlockManager : MonoBehaviour
 
     [SerializeField, Tooltip("If a Target steering behaviour is used, it's target would be this")]
     private Transform _target;
-    [SerializeField]
-    private TargetSteeringBehaviour _targetSteeringBehaviour;
 
 
     private void OnEnable()
@@ -49,9 +47,8 @@ public class FlockManager : MonoBehaviour
 
 
     private void HandleMovement()
-    {
-        if(_targetSteeringBehaviour)
-            _targetSteeringBehaviour.Target = _target;  
+    { 
+        TargetSteeringBehaviour.Target = _target;  
 
         _octtree.CreateNewTree();
         AddAgentsToOcttree();
@@ -160,5 +157,15 @@ public class FlockManager : MonoBehaviour
     public void SetSteeringBehaviour(BehaviourList behaviourList)
     {
         _behaviourList = behaviourList;
+        SetAgentMaxSpeed(behaviourList.maxSpeed);
+    }
+
+    public void SetAgentMaxSpeed(float maxSpeed)
+    {
+        int agentCount = _agents.Count;
+        for (int i = 0; i < agentCount; i++)
+        {
+            _agents[i].SetMaxSpeed(maxSpeed);
+        }
     }
 }

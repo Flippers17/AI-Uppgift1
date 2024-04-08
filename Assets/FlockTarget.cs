@@ -10,8 +10,6 @@ public class FlockTarget : MonoBehaviour
     [SerializeField]
     private InputAction freezeButton;
 
-    [SerializeField]
-    private TargetSteeringBehaviour _targetSteeringBehaviour;
 
     [SerializeField]
     private LayerMask mask;
@@ -22,8 +20,7 @@ public class FlockTarget : MonoBehaviour
 
     private void OnEnable()
     {
-        if (_targetSteeringBehaviour)
-            _targetSteeringBehaviour.Target = transform;
+        TargetSteeringBehaviour.Target = transform;
 
         _cam = Camera.main;
 

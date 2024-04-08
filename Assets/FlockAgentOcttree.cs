@@ -23,6 +23,8 @@ public class FlockAgentOcttree : MonoBehaviour
 
     private List<Vector3> neighbouringNodesTemp = new List<Vector3>() { Vector3.zero, Vector3.zero , Vector3.zero , Vector3.zero , Vector3.zero , Vector3.zero };
 
+    [Space(15), SerializeField] private bool _showGizmos = false;
+
     private void OnEnable()
     {
         instance = this;
@@ -58,6 +60,9 @@ public class FlockAgentOcttree : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if(!_showGizmos)
+            return;
+        
         Gizmos.color = Color.green;
         if (_rootNode == null)
         {

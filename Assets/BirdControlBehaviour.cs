@@ -31,7 +31,7 @@ public class BirdControlBehaviour : MonoBehaviour
 
     private void OnEnable()
     {
-        _input.OnFreezeTarget += OnFreezeTarget;
+        _input.OnFreezeTarget += ToggleFreezeTarget;
         _input.OnBlock += HandleBlock;
 
         _cam = Camera.main;
@@ -39,7 +39,7 @@ public class BirdControlBehaviour : MonoBehaviour
 
     private void OnDisable()
     {
-        _input.OnFreezeTarget -= OnFreezeTarget;
+        _input.OnFreezeTarget -= ToggleFreezeTarget;
         _input.OnBlock -= HandleBlock;
     }
 
@@ -70,6 +70,11 @@ public class BirdControlBehaviour : MonoBehaviour
         if (_freezeTarget)
             return;
 
+        MoveTargetAtAim();
+    }
+
+    private void MoveTargetAtAim()
+    {
         Ray ray = _cam.ScreenPointToRay(_input.GetMousePosition());
 
         if (Physics.Raycast(ray, out RaycastHit hit, 100, _targetAimMask))
@@ -77,10 +82,9 @@ public class BirdControlBehaviour : MonoBehaviour
             _target.position = hit.point; //+ 3 * Vector3.up;
         }
     }
-
+    
     private void HandleBlock(bool state)
     {
-        Debug.Log("Block");
         if (state)
         {
             _blocking = true;
@@ -90,13 +94,13 @@ public class BirdControlBehaviour : MonoBehaviour
         {
             _flock.SetSteeringBehaviour(_aimBehaviour);
             _blocking = false;
+            MoveTargetAtAim();
         }
     }
 
-
-    private void OnFreezeTarget()
+    
+    private void ToggleFreezeTarget()
     {
         _freezeTarget = !_freezeTarget;
-        Debug.Log("Here");
     }
 }

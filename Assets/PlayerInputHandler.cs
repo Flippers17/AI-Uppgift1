@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,11 @@ public class PlayerInputHandler : MonoBehaviour
 
     public UnityAction<bool> OnBlock = null;
 
+    public float timeSincePressedJump
+    {
+        get;
+        private set;
+    }
 
     private void OnEnable()
     {
@@ -28,6 +34,8 @@ public class PlayerInputHandler : MonoBehaviour
 
         _input.actions["Block"].performed += OnBlockInput;
         _input.actions["Block"].canceled += OnBlockInput;
+        
+        _input.actions["Jump"].performed += OnJumpInput;
 
         LockMouse(true);
     }
@@ -42,8 +50,15 @@ public class PlayerInputHandler : MonoBehaviour
 
         _input.actions["Block"].performed -= OnBlockInput;
         _input.actions["Block"].canceled -= OnBlockInput;
+        
+        _input.actions["Jump"].performed -= OnJumpInput;
     }
 
+    private void Update()
+    {
+        if (timeSincePressedJump < 5)
+            timeSincePressedJump += Time.deltaTime;
+    }
 
     private void OnMoveInput(InputAction.CallbackContext context)
     {
@@ -75,7 +90,6 @@ public class PlayerInputHandler : MonoBehaviour
     private void OnFreezeTargetInput(InputAction.CallbackContext context)
     {
         OnFreezeTarget?.Invoke();
-        Debug.Log("Doing input");
     }
 
 
@@ -84,7 +98,11 @@ public class PlayerInputHandler : MonoBehaviour
         OnBlock?.Invoke(context.performed);
     }
 
-
+    private void OnJumpInput(InputAction.CallbackContext context)
+    {
+        timeSincePressedJump = 0;
+    }
+    
     public void LockMouse(bool value)
     {
         if(value)

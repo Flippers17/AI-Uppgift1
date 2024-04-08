@@ -101,6 +101,11 @@ public class FlockAgent : MonoBehaviour
         velocity = newVelocity;
     }
 
+    public void SetMaxSpeed(float speed)
+    {
+        _maxSpeed = speed;
+    }
+    
     private void OnDrawGizmos()
     {
         if(!_debugAgent)
