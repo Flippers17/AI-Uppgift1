@@ -16,6 +16,9 @@ public class PlayerInputHandler : MonoBehaviour
     public UnityAction OnFreezeTarget = null;
 
     public UnityAction<bool> OnBlock = null;
+    public UnityAction<bool> OnFineControl = null;
+
+    public UnityAction OnAttack;
 
     public float timeSincePressedJump
     {
@@ -35,7 +38,12 @@ public class PlayerInputHandler : MonoBehaviour
         _input.actions["Block"].performed += OnBlockInput;
         _input.actions["Block"].canceled += OnBlockInput;
         
+        _input.actions["Fine Control"].performed += OnFineControlInput;
+        _input.actions["Fine Control"].canceled += OnFineControlInput;
+        
         _input.actions["Jump"].performed += OnJumpInput;
+        
+        _input.actions["Attack"].performed += OnAttackInput;
 
         LockMouse(true);
     }
@@ -51,7 +59,12 @@ public class PlayerInputHandler : MonoBehaviour
         _input.actions["Block"].performed -= OnBlockInput;
         _input.actions["Block"].canceled -= OnBlockInput;
         
+        _input.actions["Fine Control"].performed -= OnFineControlInput;
+        _input.actions["Fine Control"].canceled -= OnFineControlInput;
+        
         _input.actions["Jump"].performed -= OnJumpInput;
+        
+        _input.actions["Attack"].performed -= OnAttackInput;
     }
 
     private void Update()
@@ -98,9 +111,19 @@ public class PlayerInputHandler : MonoBehaviour
         OnBlock?.Invoke(context.performed);
     }
 
+    private void OnFineControlInput(InputAction.CallbackContext context)
+    {
+        OnFineControl?.Invoke(context.performed);
+    }
+
     private void OnJumpInput(InputAction.CallbackContext context)
     {
         timeSincePressedJump = 0;
+    }
+
+    private void OnAttackInput(InputAction.CallbackContext context)
+    {
+        OnAttack?.Invoke();
     }
     
     public void LockMouse(bool value)

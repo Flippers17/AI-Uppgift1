@@ -168,4 +168,18 @@ public class FlockManager : MonoBehaviour
             _agents[i].SetMaxSpeed(maxSpeed);
         }
     }
+
+    public Vector3 GetAverageFlockPosition()
+    {
+        Vector3 average = Vector3.zero;
+
+        int agentCount = _agents.Count;
+        for (int i = 0; i < agentCount; i++)
+        {
+            average += _agents[i].position;
+        }
+
+        average /= agentCount;
+        return average;
+    }
 }

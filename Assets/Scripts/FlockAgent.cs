@@ -15,6 +15,8 @@ public class FlockAgent : MonoBehaviour
     public Vector3 velocity;
     [SerializeField]
     private float _maxSpeed = 5f;
+    [SerializeField]
+    private float _deceleration = 5f;
 
     public float sightRadius = 2f;
     [SerializeField, Range(0f, 180f)]
@@ -89,14 +91,14 @@ public class FlockAgent : MonoBehaviour
 
         for(int i = 0; i < behaviourCount; i++)
         {
-            force += behaviours[i].behaviour.CalculateMovement(this, context) * behaviours[i].weight * weightMultiplier;
+            force += behaviours[i].behaviour.CalculateMovement(this, context, behaviours[i].forceMultiplier) * behaviours[i].weight * weightMultiplier;
         }
 
         force = force * Time.deltaTime;
         Vector3 newVelocity = velocity + force;
 
-        if(newVelocity.sqrMagnitude > _maxSpeed * _maxSpeed)
-            newVelocity = newVelocity.normalized * _maxSpeed;
+        if(newVelocity.sqrMagnitude > _maxSpeed * _maxSpeed && newVelocity.sqrMagnitude > velocity.sqrMagnitude)
+            newVelocity = newVelocity.normalized * (velocity.magnitude - (_deceleration * Time.deltaTime));
 
         velocity = newVelocity;
     }
@@ -128,4 +130,5 @@ public class SteeringBehaviourItems
 {
     public SteeringBehaviour behaviour;
     public float weight = 1f;
+    public float forceMultiplier = 1f;
 }

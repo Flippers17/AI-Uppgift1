@@ -23,7 +23,7 @@ public class ObstacleAvoidanceBehaviour : SteeringBehaviour
     private bool hasGeneratedRays = false;
 
 
-    public override Vector3 CalculateMovement(FlockAgent agentToMove, List<FlockAgent> context)
+    public override Vector3 CalculateMovement(FlockAgent agentToMove, List<FlockAgent> context, float forceMultiplier)
     {
         if(!hasGeneratedRays)
             GenerateRays();
@@ -59,11 +59,11 @@ public class ObstacleAvoidanceBehaviour : SteeringBehaviour
                     return Vector3.zero;
 
                 //Debug.DrawRay(agentToMove.position, currentDir * agentToMove.sightRadius, Color.green);
-                return currentDir * avoidanceForce;
+                return currentDir * (avoidanceForce * forceMultiplier);
             }
         }
 
-        return bestDir * avoidanceForce;
+        return bestDir * (avoidanceForce * forceMultiplier);
 
     }
 

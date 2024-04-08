@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class SteeringBehaviour : ScriptableObject
 {
-    public abstract Vector3 CalculateMovement(FlockAgent agentToMove, List<FlockAgent> context);
+    public abstract Vector3 CalculateMovement(FlockAgent agentToMove, List<FlockAgent> context, float forceMultiplier);
 }

@@ -8,7 +8,7 @@ public class CohesionBehaviour : SteeringBehaviour
     [SerializeField]
     private float _cohesionForce = 1f;
 
-    public override Vector3 CalculateMovement(FlockAgent agentToMove, List<FlockAgent> context)
+    public override Vector3 CalculateMovement(FlockAgent agentToMove, List<FlockAgent> context, float forceMultiplier)
     {
         int contextCount = context.Count;
 
@@ -24,6 +24,6 @@ public class CohesionBehaviour : SteeringBehaviour
 
         averagePosition /= contextCount;
 
-        return (averagePosition - agentToMove.position) * _cohesionForce;
+        return (averagePosition - agentToMove.position) * (_cohesionForce * forceMultiplier);
     }
 }

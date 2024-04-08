@@ -7,7 +7,7 @@ public class AlignmentBehaviour : SteeringBehaviour
 {
     [SerializeField]
     private float _alignmentForce = 1f;
-    public override Vector3 CalculateMovement(FlockAgent agentToMove, List<FlockAgent> context)
+    public override Vector3 CalculateMovement(FlockAgent agentToMove, List<FlockAgent> context, float forceMultiplier)
     {
         int contextCount = context.Count;
         if(contextCount == 0)
@@ -21,7 +21,7 @@ public class AlignmentBehaviour : SteeringBehaviour
         }
 
         averageVelocity /= contextCount;
-        averageVelocity *= _alignmentForce;
+        averageVelocity *= _alignmentForce * forceMultiplier;
 
         return averageVelocity;
     }
