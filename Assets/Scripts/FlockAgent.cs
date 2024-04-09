@@ -91,7 +91,7 @@ public class FlockAgent : MonoBehaviour
 
         for(int i = 0; i < behaviourCount; i++)
         {
-            force += behaviours[i].behaviour.CalculateMovement(this, context, behaviours[i].forceMultiplier) * behaviours[i].weight * weightMultiplier;
+            force += behaviours[i].behaviour.CalculateMovement(this, context, behaviours[i].forceMultiplier) * (behaviours[i].weight * weightMultiplier);
         }
 
         force = force * Time.deltaTime;

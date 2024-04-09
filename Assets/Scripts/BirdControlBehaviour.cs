@@ -130,7 +130,7 @@ public class BirdControlBehaviour : MonoBehaviour
             _attacking = false;
             _flock.SetSteeringBehaviour(_blockBehaviour);
         }
-        else
+        else if(_blocking)
         {
             _flock.SetSteeringBehaviour(_aimBehaviour);
             _blocking = false;
@@ -156,6 +156,7 @@ public class BirdControlBehaviour : MonoBehaviour
             return;
         
         _attacking = true;
+        _blocking = false;
         MoveTargetAtAim();
         float distance = Vector3.Distance(_aimPoint.position, _flock.GetAverageFlockPosition());
         _attackTimer = (distance / _projectileAttackBehaviour.maxSpeed) + .2f;
