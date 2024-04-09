@@ -19,10 +19,10 @@ MonoBehaviour:
     forceMultiplier: 1
   - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
     weight: 4
-    forceMultiplier: 5
+    forceMultiplier: 10
   - behaviour: {fileID: 11400000, guid: 1838a8e03a23f7c429ec11e328e6c4c2, type: 2}
-    weight: 5
-    forceMultiplier: 5
+    weight: 7
+    forceMultiplier: 10
   - behaviour: {fileID: 11400000, guid: 945cf9c8dc62cc142b65f3849726aa3b, type: 2}
     weight: 10
     forceMultiplier: 10

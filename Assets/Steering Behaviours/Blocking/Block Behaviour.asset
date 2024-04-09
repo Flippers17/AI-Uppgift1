@@ -16,11 +16,16 @@ MonoBehaviour:
   items:
   - behaviour: {fileID: 11400000, guid: ddf2f28bf7ec1ba428f47c1a8ad710c8, type: 2}
     weight: 0
+    forceMultiplier: 1
   - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
     weight: 4
+    forceMultiplier: 1
   - behaviour: {fileID: 11400000, guid: 1838a8e03a23f7c429ec11e328e6c4c2, type: 2}
     weight: 0
-  - behaviour: {fileID: 11400000, guid: 264f25489bf3d554ca79885c4030eada, type: 2}
+    forceMultiplier: 1
+  - behaviour: {fileID: 11400000, guid: 945cf9c8dc62cc142b65f3849726aa3b, type: 2}
     weight: 10
+    forceMultiplier: 10
   - behaviour: {fileID: 11400000, guid: 60c0d5e64e3fa1340b1897cff2aa9112, type: 2}
     weight: 8
+    forceMultiplier: 1
