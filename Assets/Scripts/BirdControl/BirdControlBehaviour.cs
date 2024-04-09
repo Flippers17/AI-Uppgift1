@@ -24,11 +24,22 @@ public class BirdControlBehaviour : MonoBehaviour
     private float aimDistance = 0;
 
     [Space(15), SerializeField]
+    private BehaviourList _idleBehaviour;
+    [SerializeField]
     private BehaviourList _blockBehaviour;
     [SerializeField]
     private BehaviourList _aimBehaviour;
     [SerializeField]
     private BehaviourList _projectileAttackBehaviour;
+
+    private BirdControlState currentControlState;
+
+    [SerializeField]
+    private BirdIdleControlState _idle;
+
+    [SerializeField] private BirdTargetControlBehaviour _targetingState;
+    [SerializeField] private BirdBlockControlBehaviour _blockState;
+    [SerializeField] private BirdAttackState _attackState;
 
 
     private bool _freezeTarget = true;

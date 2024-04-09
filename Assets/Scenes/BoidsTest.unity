@@ -524,7 +524,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63098643}
-  m_LocalRotation: {x: 0.14220116, y: 0.000000017031562, z: -0.0000000024467726, w: 0.9898378}
+  m_LocalRotation: {x: 0.14220116, y: -0.000000017031525, z: 0.0000000024467672, w: 0.9898378}
   m_LocalPosition: {x: 19.76, y: -17.820442, z: -34.958485}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1961,7 +1961,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321549572}
-  m_LocalRotation: {x: 0.16018225, y: 0.00000001572398, z: -0.0000000025516513, w: 0.9870875}
+  m_LocalRotation: {x: 0.16018225, y: -0.000000016984204, z: 0.0000000027561575, w: 0.9870875}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2639,10 +2639,19 @@ MonoBehaviour:
     m_Bits: 128
   _target: {fileID: 822131413}
   _aimPoint: {fileID: 654517952}
+  _idleBehaviour: {fileID: 0}
   _blockBehaviour: {fileID: 11400000, guid: 90f0c80b7cc24e844809d4f9a4a6763c, type: 2}
   _aimBehaviour: {fileID: 11400000, guid: df9710ea783037f44948dafd972e1be2, type: 2}
   _projectileAttackBehaviour: {fileID: 11400000, guid: ec64d575d1cb2fc4c88d8d7cdab70bcd,
     type: 2}
+  _idle:
+    _behaviour: {fileID: 0}
+  _targetingState:
+    _behaviour: {fileID: 0}
+  _blockState:
+    _behaviour: {fileID: 0}
+  _attackState:
+    _behaviour: {fileID: 0}
 --- !u!4 &497454117 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3657423744327855393, guid: 6caef1c06fc8644479412d87dbc60996,
@@ -4081,7 +4090,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774246359}
-  m_LocalRotation: {x: 0.14220116, y: 0.00000000851584, z: -0.0000000012233948, w: 0.98983777}
+  m_LocalRotation: {x: 0.14220116, y: -0.000000008515762, z: 0.0000000012233836, w: 0.98983777}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5449,7 +5458,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1064292013}
-  m_LocalRotation: {x: 0.16018225, y: 0.000000016987393, z: -0.0000000027566744, w: 0.9870875}
+  m_LocalRotation: {x: 0.16018225, y: -0.0000000169842, z: 0.0000000027561569, w: 0.9870875}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8492,6 +8501,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1509332523}
+  - component: {fileID: 1509332524}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -8515,6 +8525,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1509332524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509332522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b96659fc41c47804493de8f0b45017f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionType: 0
+  OnInteractedWith:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1509332522}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1519675128 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3657423744327855393, guid: 6caef1c06fc8644479412d87dbc60996,
