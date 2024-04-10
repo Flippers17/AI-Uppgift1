@@ -17,6 +17,7 @@ public class BirdAttackState : BirdControlState
         float distance = Vector3.Distance(controlBehaviour.GetAimPointPos(), controlBehaviour.GetAverageFlockPos());
         _attackTimer = (distance / _behaviour.maxSpeed) + .2f;
         controlBehaviour.SetSteeringBehaviour(_behaviour);
+        controlBehaviour.SetInteractionType(FlockInteractionType.Attack);
     }
 
     public override void UpdateState(BirdControlBehaviour controlBehaviour, float deltaTime)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class FlockInteraction : MonoBehaviour, FlockInteractable
+public class FlockInteraction : MonoBehaviour, IFlockInteractable
 {
     public FlockInteractionType interactionType;
     public UnityEvent OnInteractedWith;
@@ -18,12 +18,13 @@ public class FlockInteraction : MonoBehaviour, FlockInteractable
 
 public enum FlockInteractionType
 {
+    None,
     Attack,
     Interact
 }
 
 
-public interface FlockInteractable
+public interface IFlockInteractable
 {
     public void Interact(FlockInteractionType type){}
     

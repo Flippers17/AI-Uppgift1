@@ -27,6 +27,11 @@ public class FlockManager : MonoBehaviour
     private Transform _target;
 
 
+    public Vector3 averagePos
+    {
+        get; private set;
+    }
+
     private void OnEnable()
     {
         if(_isMainFlock)
@@ -90,6 +95,7 @@ public class FlockManager : MonoBehaviour
     private void MoveAgents(float weightMultiplier)
     {
         List<FlockAgent> context = new List<FlockAgent>(8);
+        averagePos = Vector3.zero;
 
         if(_behaviourList)
         {
@@ -99,6 +105,7 @@ public class FlockManager : MonoBehaviour
                 GetContext(agent, ref context);
                 agent.CalculateMovement(context, _behaviourList.items, behaviourCount, weightMultiplier);
                 context.Clear();
+                averagePos += agent.position;
             }
         }
         else
@@ -109,9 +116,12 @@ public class FlockManager : MonoBehaviour
                 GetContext(agent, ref context);
                 agent.CalculateMovement(context, _steeringBehaviours, behaviourCount, weightMultiplier);
                 context.Clear();
+                averagePos += agent.position;
             }
         }
         
+
+        averagePos /= _agents.Count;
     }
 
     private void AddAgentsToOcttree()
@@ -169,6 +179,7 @@ public class FlockManager : MonoBehaviour
         }
     }
 
+    /*
     public Vector3 GetAverageFlockPosition()
     {
         Vector3 average = Vector3.zero;
@@ -181,5 +192,5 @@ public class FlockManager : MonoBehaviour
 
         average /= agentCount;
         return average;
-    }
+    }*/
 }

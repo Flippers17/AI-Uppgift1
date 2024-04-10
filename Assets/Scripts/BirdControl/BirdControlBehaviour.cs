@@ -22,6 +22,8 @@ public class BirdControlBehaviour : MonoBehaviour
     private Transform _aimPoint;
     [HideInInspector]
     public Transform thisTransform;
+    [SerializeField]
+    private InteractTrigger _interacter;
 
 
     private BirdControlState _currentControlState;
@@ -70,6 +72,7 @@ public class BirdControlBehaviour : MonoBehaviour
     {
         _aimPoint.position = HandleAim();
         _currentControlState.UpdateState(this, Time.deltaTime);
+        _interacter.thisTransform.position = GetAverageFlockPos();
     }
 
 
@@ -123,7 +126,7 @@ public class BirdControlBehaviour : MonoBehaviour
         if(_currentControlState == _attackState)
             return;
 
-        Vector3 averagePos = _flock.GetAverageFlockPosition();
+        Vector3 averagePos = _flock.averagePos;
         Debug.DrawLine(averagePos, averagePos + Vector3.up, Color.green, 5f);
         if(Vector3.SqrMagnitude(averagePos - transform.position) > 64f)
             return;
@@ -134,9 +137,13 @@ public class BirdControlBehaviour : MonoBehaviour
 
     public Vector3 GetAverageFlockPos()
     {
-        return _flock.GetAverageFlockPosition();
+        return _flock.averagePos;
     }
 
+    public Vector3 GetAimPointPos()
+    {
+        return _aimPoint.position;
+    }
 
     public void TransitionToIdle()
     {
@@ -155,10 +162,12 @@ public class BirdControlBehaviour : MonoBehaviour
         _target.position = targetPosition;
     }
 
-    public Vector3 GetAimPointPos()
+    public void SetInteractionType(FlockInteractionType type)
     {
-        return _aimPoint.position;
+        _interacter.InteractType = type;
     }
+
+    
 
     public void SetSteeringBehaviour(BehaviourList behaviourList)
     {
