@@ -14,7 +14,7 @@ public abstract class BirdControlState
     
     public abstract void EnterState(BirdControlBehaviour controlBehaviour);
     
-    public abstract void UpdateState(BirdControlBehaviour controlBehaviour);
+    public abstract void UpdateState(BirdControlBehaviour controlBehaviour, float deltaTime);
     
     public abstract void ExitState(BirdControlBehaviour controlBehaviour);
 }

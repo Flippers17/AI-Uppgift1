@@ -11,16 +11,16 @@ public class BirdBlockControlBehaviour : BirdControlState
 
     public override void EnterState(BirdControlBehaviour controlBehaviour)
     {
-        throw new System.NotImplementedException();
+        controlBehaviour.SetSteeringBehaviour(_behaviour);
     }
 
-    public override void UpdateState(BirdControlBehaviour controlBehaviour)
+    public override void UpdateState(BirdControlBehaviour controlBehaviour, float deltaTime)
     {
-        throw new System.NotImplementedException();
+        controlBehaviour.SetTargetPosition(controlBehaviour.thisTransform.position);
     }
 
     public override void ExitState(BirdControlBehaviour controlBehaviour)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 }

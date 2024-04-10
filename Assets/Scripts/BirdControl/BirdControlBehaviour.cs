@@ -20,21 +20,13 @@ public class BirdControlBehaviour : MonoBehaviour
     private Transform _target;
     [SerializeField]
     private Transform _aimPoint;
+    [HideInInspector]
+    public Transform thisTransform;
 
-    private float aimDistance = 0;
 
-    [Space(15), SerializeField]
-    private BehaviourList _idleBehaviour;
-    [SerializeField]
-    private BehaviourList _blockBehaviour;
-    [SerializeField]
-    private BehaviourList _aimBehaviour;
-    [SerializeField]
-    private BehaviourList _projectileAttackBehaviour;
+    private BirdControlState _currentControlState;
 
-    private BirdControlState currentControlState;
-
-    [SerializeField]
+    [Space(15), Header("States"), SerializeField]
     private BirdIdleControlState _idle;
 
     [SerializeField] private BirdTargetControlBehaviour _targetingState;
@@ -42,27 +34,21 @@ public class BirdControlBehaviour : MonoBehaviour
     [SerializeField] private BirdAttackState _attackState;
 
 
-    private bool _freezeTarget = true;
     private Camera _cam;
 
-    private bool _blocking = false;
-    private bool _attacking = false;
-
-    private float _attackTimer = 0;
 
     private void OnEnable()
     {
-        //_input.OnFreezeTarget += ToggleFreezeTarget;
         _input.OnFineControl += FineControl;
         _input.OnBlock += HandleBlock;
         _input.OnAttack += DoProjectileAttack;
 
         _cam = Camera.main;
+        thisTransform = transform;
     }
 
     private void OnDisable()
     {
-        //_input.OnFreezeTarget -= ToggleFreezeTarget;
         _input.OnFineControl -= FineControl;
         _input.OnBlock -= HandleBlock;
         _input.OnAttack -= DoProjectileAttack;
@@ -74,59 +60,31 @@ public class BirdControlBehaviour : MonoBehaviour
     {
         _flock = FlockManager.mainFlock;
         _flock.SetTarget(_target);
-        _target.position = transform.position + Vector3.up * 5;
+
+        _currentControlState = _idle;
+        _currentControlState.EnterState(this);
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdatePosition();
-
-        if (_attacking)
-        {
-            _attackTimer -= Time.deltaTime;
-
-            if (_attackTimer <= 0)
-                StopAttack();
-        }
+        _aimPoint.position = HandleAim();
+        _currentControlState.UpdateState(this, Time.deltaTime);
     }
 
 
-    private void UpdatePosition()
-    {
-        _aimPoint.position = HandleAim(out aimDistance);
-        
-        if (_blocking)
-        {
-            _target.position = transform.position;
-            return;
-        }
-        
-        if(_attacking)
-            return;
-        
-        _target.position = transform.position + Vector3.up * 5;
-
-        if (_freezeTarget)
-            return;
-
-        MoveTargetAtAim();
-    }
-    
-    private void MoveTargetAtAim()
+    public void MoveTargetAtAim()
     {
         _target.position = _aimPoint.position;
     }
 
-    private Vector3 HandleAim(out float distance)
+    private Vector3 HandleAim()
     {
         Ray ray = _cam.ScreenPointToRay(_input.GetMousePosition());
-        distance = 20;
         
         if (Physics.Raycast(ray, out RaycastHit hit, 100, _targetAimMask))
         {
-            distance = hit.distance;
-            return hit.point; //+ 3 * Vector3.up;
+            return hit.point;
         }
         else
             return _cam.transform.position + ray.direction * 20;
@@ -135,35 +93,34 @@ public class BirdControlBehaviour : MonoBehaviour
     
     private void HandleBlock(bool state)
     {
+
         if (state)
         {
-            _blocking = true;
-            _attacking = false;
-            _flock.SetSteeringBehaviour(_blockBehaviour);
+            TransitionState(_blockState);
         }
-        else if(_blocking)
+        else if(_currentControlState == _blockState)
         {
-            _flock.SetSteeringBehaviour(_aimBehaviour);
-            _blocking = false;
-            _target.position = transform.position + Vector3.up * 5;
+            TransitionState(_idle);
         }
     }
 
-    
-    private void ToggleFreezeTarget()
-    {
-        _freezeTarget = !_freezeTarget;
-    }
 
     private void FineControl(bool value)
     {
-        _freezeTarget = !value;
+        if(value)
+        {
+            TransitionState(_targetingState);
+        }
+        else if( _currentControlState == _targetingState)
+        {
+            TransitionState(_idle);
+        }
     }
 
 
     private void DoProjectileAttack()
     {
-        if(_attacking)
+        if(_currentControlState == _attackState)
             return;
 
         Vector3 averagePos = _flock.GetAverageFlockPosition();
@@ -171,17 +128,40 @@ public class BirdControlBehaviour : MonoBehaviour
         if(Vector3.SqrMagnitude(averagePos - transform.position) > 64f)
             return;
         
-        _attacking = true;
-        _blocking = false;
-        MoveTargetAtAim();
-        float distance = Vector3.Distance(_aimPoint.position, averagePos);
-        _attackTimer = (distance / _projectileAttackBehaviour.maxSpeed) + .2f;
-        _flock.SetSteeringBehaviour(_projectileAttackBehaviour);
+        TransitionState(_attackState);
     }
 
-    private void StopAttack()
+
+    public Vector3 GetAverageFlockPos()
     {
-        _attacking = false;
-        _flock.SetSteeringBehaviour(_aimBehaviour);
+        return _flock.GetAverageFlockPosition();
+    }
+
+
+    public void TransitionToIdle()
+    {
+        TransitionState(_idle);
+    }
+
+    public void TransitionState(BirdControlState state)
+    {
+        _currentControlState.ExitState(this);
+        _currentControlState = state;
+        _currentControlState.EnterState(this);
+    }
+
+    public void SetTargetPosition(Vector3 targetPosition)
+    {
+        _target.position = targetPosition;
+    }
+
+    public Vector3 GetAimPointPos()
+    {
+        return _aimPoint.position;
+    }
+
+    public void SetSteeringBehaviour(BehaviourList behaviourList)
+    {
+        _flock.SetSteeringBehaviour(behaviourList);
     }
 }
