@@ -5,6 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class BirdTargetControlBehaviour : BirdControlState
 {
+    [SerializeField] private Vector3 _interactionSize;
+    
     public BirdTargetControlBehaviour(BehaviourList behaviour) : base(behaviour)
     {
     }
@@ -12,6 +14,7 @@ public class BirdTargetControlBehaviour : BirdControlState
     public override void EnterState(BirdControlBehaviour controlBehaviour)
     {
         controlBehaviour.SetSteeringBehaviour(_behaviour);
+        controlBehaviour.SetInteraction(FlockInteractionType.Interact, _interactionSize);
     }
 
     public override void UpdateState(BirdControlBehaviour controlBehaviour, float deltaTime)
@@ -22,5 +25,7 @@ public class BirdTargetControlBehaviour : BirdControlState
     public override void ExitState(BirdControlBehaviour controlBehaviour)
     {
         //throw new System.NotImplementedException();
+        controlBehaviour.SetInteraction(FlockInteractionType.None, Vector3.zero);
+        controlBehaviour.StopCurrentInteraction();
     }
 }

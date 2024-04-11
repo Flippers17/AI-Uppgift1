@@ -25,7 +25,9 @@ public class BirdControlBehaviour : MonoBehaviour
     [SerializeField]
     private InteractTrigger _interacter;
 
-
+    [SerializeField] private float _aimSurfaceDistance = 3f;
+    private Vector3 _aimSurfaceNormal;
+    
     private BirdControlState _currentControlState;
 
     [Space(15), Header("States"), SerializeField]
@@ -78,7 +80,7 @@ public class BirdControlBehaviour : MonoBehaviour
 
     public void MoveTargetAtAim()
     {
-        _target.position = _aimPoint.position;
+        _target.position = _aimPoint.position + (_aimSurfaceNormal * _aimSurfaceDistance);
     }
 
     private Vector3 HandleAim()
@@ -87,10 +89,14 @@ public class BirdControlBehaviour : MonoBehaviour
         
         if (Physics.Raycast(ray, out RaycastHit hit, 100, _targetAimMask))
         {
+            _aimSurfaceNormal = hit.normal;
             return hit.point;
         }
         else
+        {
+            _aimSurfaceNormal = Vector3.zero;
             return _cam.transform.position + ray.direction * 20;
+        }
     }
     
     
@@ -162,9 +168,15 @@ public class BirdControlBehaviour : MonoBehaviour
         _target.position = targetPosition;
     }
 
-    public void SetInteractionType(FlockInteractionType type)
+    public void SetInteraction(FlockInteractionType type, Vector3 size)
     {
         _interacter.InteractType = type;
+        _interacter.SetSize(size);
+    }
+
+    public void StopCurrentInteraction()
+    {
+        _interacter.StopInteraction();
     }
 
     

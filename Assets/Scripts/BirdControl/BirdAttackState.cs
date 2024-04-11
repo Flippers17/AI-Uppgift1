@@ -7,6 +7,8 @@ public class BirdAttackState : BirdControlState
 {
     private float _attackTimer;
 
+    [SerializeField] private Vector3 _interactionSize;
+
     public BirdAttackState(BehaviourList behaviour) : base(behaviour)
     {
     }
@@ -17,7 +19,7 @@ public class BirdAttackState : BirdControlState
         float distance = Vector3.Distance(controlBehaviour.GetAimPointPos(), controlBehaviour.GetAverageFlockPos());
         _attackTimer = (distance / _behaviour.maxSpeed) + .2f;
         controlBehaviour.SetSteeringBehaviour(_behaviour);
-        controlBehaviour.SetInteractionType(FlockInteractionType.Attack);
+        controlBehaviour.SetInteraction(FlockInteractionType.Attack, _interactionSize);
     }
 
     public override void UpdateState(BirdControlBehaviour controlBehaviour, float deltaTime)

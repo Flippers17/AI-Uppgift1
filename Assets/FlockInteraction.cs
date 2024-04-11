@@ -7,12 +7,23 @@ public class FlockInteraction : MonoBehaviour, IFlockInteractable
 {
     public FlockInteractionType interactionType;
     public UnityEvent OnInteractedWith;
+    public UnityEvent OnStopInteracted;
     
     
-    public void Interact(FlockInteractionType type)
+    public bool Interact(FlockInteractionType type, FlockManager flock)
     {
-        if(type == interactionType)
+        if (type == interactionType)
+        {
             OnInteractedWith?.Invoke();
+            return true;
+        }
+
+        return false;
+    }
+
+    public void StopInteract()
+    {
+        OnStopInteracted?.Invoke();
     }
 }
 
@@ -26,7 +37,7 @@ public enum FlockInteractionType
 
 public interface IFlockInteractable
 {
-    public void Interact(FlockInteractionType type){}
-    
-    
+    public bool Interact(FlockInteractionType type, FlockManager flock);
+
+    public void StopInteract();
 }
