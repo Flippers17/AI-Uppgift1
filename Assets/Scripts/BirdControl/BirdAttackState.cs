@@ -34,6 +34,6 @@ public class BirdAttackState : BirdControlState
 
     public override void ExitState(BirdControlBehaviour controlBehaviour)
     {
-        //throw new System.NotImplementedException();
+        controlBehaviour.SetInteraction(FlockInteractionType.None, Vector3.zero);
     }
 }

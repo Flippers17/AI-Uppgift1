@@ -17,6 +17,12 @@ public class BirdBlockControlBehaviour : BirdControlState
     public override void UpdateState(BirdControlBehaviour controlBehaviour, float deltaTime)
     {
         controlBehaviour.SetTargetPosition(controlBehaviour.thisTransform.position);
+
+        if(Vector3.SqrMagnitude(controlBehaviour.thisTransform.position - controlBehaviour.GetAverageFlockPos()) < 25)
+        {
+            Debug.Log("Blocking");
+            controlBehaviour.health.SetInvincibility(1f);
+        }
     }
 
     public override void ExitState(BirdControlBehaviour controlBehaviour)
