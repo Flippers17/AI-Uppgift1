@@ -20,6 +20,8 @@ public class FlockAgentOcttree : MonoBehaviour
     
     [SerializeField]
     private int maxLevels = 6;
+    [SerializeField]
+    private bool _createChildNodesFromStart = true;
 
     private List<Vector3> neighbouringNodesTemp = new List<Vector3>() { Vector3.zero, Vector3.zero , Vector3.zero , Vector3.zero , Vector3.zero , Vector3.zero };
 
@@ -31,7 +33,7 @@ public class FlockAgentOcttree : MonoBehaviour
 
         rootBounds.center = transform.position;
         rootBounds.size = _rootSize;
-        _rootNode = new FlockAgentOcttreeNode(rootBounds, capacity, maxLevels);
+        _rootNode = new FlockAgentOcttreeNode(rootBounds, capacity, maxLevels, _createChildNodesFromStart);
     }
 
     public void CreateNewTree()
@@ -110,22 +112,28 @@ public class FlockAgentOcttreeNode
 
     private int levelsLeft = 0;
 
+    private bool hasCreatedChildNodes = false;
 
-    public FlockAgentOcttreeNode(Bounds Bounds, int capacity, int levelsLeft)
+
+    public FlockAgentOcttreeNode(Bounds Bounds, int capacity, int levelsLeft, bool createChildNodes)
     {
         SetValues(Bounds, capacity, levelsLeft);
 
         if (levelsLeft == 0)
             return;
 
-        topNorthEast = new FlockAgentOcttreeNode(bounds, capacity, levelsLeft - 1);
-        topNorthWest = new FlockAgentOcttreeNode(bounds, capacity, levelsLeft - 1);
-        topSouthEast = new FlockAgentOcttreeNode(bounds, capacity, levelsLeft - 1);
-        topSouthWest = new FlockAgentOcttreeNode(bounds, capacity, levelsLeft - 1);
-        bottomNorthEast = new FlockAgentOcttreeNode(bounds, capacity, levelsLeft - 1);
-        bottomNorthWest = new FlockAgentOcttreeNode(bounds, capacity, levelsLeft - 1);
-        bottomSouthEast = new FlockAgentOcttreeNode(bounds, capacity, levelsLeft - 1);
-        bottomSouthWest = new FlockAgentOcttreeNode(bounds, capacity, levelsLeft - 1);
+        if (!createChildNodes)
+            return;
+
+        topNorthEast = new FlockAgentOcttreeNode(bounds, capacity, levelsLeft - 1, createChildNodes);
+        topNorthWest = new FlockAgentOcttreeNode(bounds, capacity, levelsLeft - 1, createChildNodes);
+        topSouthEast = new FlockAgentOcttreeNode(bounds, capacity, levelsLeft - 1, createChildNodes);
+        topSouthWest = new FlockAgentOcttreeNode(bounds, capacity, levelsLeft - 1, createChildNodes);
+        bottomNorthEast = new FlockAgentOcttreeNode(bounds, capacity, levelsLeft - 1, createChildNodes);
+        bottomNorthWest = new FlockAgentOcttreeNode(bounds, capacity, levelsLeft - 1, createChildNodes);
+        bottomSouthEast = new FlockAgentOcttreeNode(bounds, capacity, levelsLeft - 1, createChildNodes);
+        bottomSouthWest = new FlockAgentOcttreeNode(bounds, capacity, levelsLeft - 1, createChildNodes);
+        hasCreatedChildNodes = true;
     }
 
     public void SetValues(Bounds Bounds, int capacity, int levelsLeft)
@@ -252,31 +260,62 @@ public class FlockAgentOcttreeNode
         if (isDivided)
             return;
 
-        Bounds current = new Bounds(boundsPosition + new Vector3(quarterSize.x, quarterSize.y, quarterSize.z), halfSize);
-        topNorthEast.SetValues(current, capacity, levelsLeft - 1);
+        if(hasCreatedChildNodes)
+        {
+            Bounds current = new Bounds(boundsPosition + new Vector3(quarterSize.x, quarterSize.y, quarterSize.z), halfSize);
+            topNorthEast.SetValues(current, capacity, levelsLeft - 1);
+
+            current.center = boundsPosition + new Vector3(-quarterSize.x, quarterSize.y, quarterSize.z);
+            topNorthWest.SetValues(current, capacity, levelsLeft - 1);
+
+            current.center = boundsPosition + new Vector3(quarterSize.x, quarterSize.y, -quarterSize.z);
+            topSouthEast.SetValues(current, capacity, levelsLeft - 1);
+
+            current.center = boundsPosition + new Vector3(-quarterSize.x, quarterSize.y, -quarterSize.z);
+            topSouthWest.SetValues(current, capacity, levelsLeft - 1);
+
+            current.center = boundsPosition + new Vector3(quarterSize.x, -quarterSize.y, quarterSize.z);
+            bottomNorthEast.SetValues(current, capacity, levelsLeft - 1);
+
+            current.center = boundsPosition + new Vector3(-quarterSize.x, -quarterSize.y, quarterSize.z);
+            bottomNorthWest.SetValues(current, capacity, levelsLeft - 1);
+
+            current.center = boundsPosition + new Vector3(quarterSize.x, -quarterSize.y, -quarterSize.z);
+            bottomSouthEast.SetValues(current, capacity, levelsLeft - 1);
+
+            current.center = boundsPosition + new Vector3(-quarterSize.x, -quarterSize.y, -quarterSize.z);
+            bottomSouthWest.SetValues(current, capacity, levelsLeft - 1);
+        }
+        else
+        {
+            Bounds current = new Bounds(boundsPosition + new Vector3(quarterSize.x, quarterSize.y, quarterSize.z), halfSize);
+            topNorthEast = new FlockAgentOcttreeNode(current, capacity, levelsLeft - 1, false);
+
+            current.center = boundsPosition + new Vector3(-quarterSize.x, quarterSize.y, quarterSize.z);
+            topNorthWest = new FlockAgentOcttreeNode(current, capacity, levelsLeft - 1, false);
+
+            current.center = boundsPosition + new Vector3(quarterSize.x, quarterSize.y, -quarterSize.z);
+            topSouthEast = new FlockAgentOcttreeNode(current, capacity, levelsLeft - 1, false);
+
+            current.center = boundsPosition + new Vector3(-quarterSize.x, quarterSize.y, -quarterSize.z);
+            topSouthWest = new FlockAgentOcttreeNode(current, capacity, levelsLeft - 1, false);
+
+            current.center = boundsPosition + new Vector3(quarterSize.x, -quarterSize.y, quarterSize.z);
+            bottomNorthEast = new FlockAgentOcttreeNode(current, capacity, levelsLeft - 1, false);
+
+            current.center = boundsPosition + new Vector3(-quarterSize.x, -quarterSize.y, quarterSize.z);
+            bottomNorthWest = new FlockAgentOcttreeNode(current, capacity, levelsLeft - 1, false);
+
+            current.center = boundsPosition + new Vector3(quarterSize.x, -quarterSize.y, -quarterSize.z);
+            bottomSouthEast = new FlockAgentOcttreeNode(current, capacity, levelsLeft - 1, false);
+
+            current.center = boundsPosition + new Vector3(-quarterSize.x, -quarterSize.y, -quarterSize.z);
+            bottomSouthWest = new FlockAgentOcttreeNode(current, capacity, levelsLeft - 1, false);
+        }
         
-        current.center = boundsPosition + new Vector3(-quarterSize.x, quarterSize.y, quarterSize.z);
-        topNorthWest.SetValues(current, capacity, levelsLeft - 1);
-
-        current.center = boundsPosition + new Vector3(quarterSize.x, quarterSize.y, -quarterSize.z);
-        topSouthEast.SetValues(current, capacity, levelsLeft - 1);
-
-        current.center = boundsPosition + new Vector3(-quarterSize.x, quarterSize.y, -quarterSize.z);
-        topSouthWest.SetValues(current, capacity, levelsLeft - 1);
-
-        current.center = boundsPosition + new Vector3(quarterSize.x, -quarterSize.y, quarterSize.z);
-        bottomNorthEast.SetValues(current, capacity, levelsLeft - 1);
-
-        current.center = boundsPosition + new Vector3(-quarterSize.x, -quarterSize.y, quarterSize.z);
-        bottomNorthWest.SetValues(current, capacity, levelsLeft - 1);
-
-        current.center = boundsPosition + new Vector3(quarterSize.x, -quarterSize.y, -quarterSize.z);
-        bottomSouthEast.SetValues(current, capacity, levelsLeft - 1);
-
-        current.center = boundsPosition + new Vector3(-quarterSize.x, -quarterSize.y, -quarterSize.z);
-        bottomSouthWest.SetValues(current, capacity, levelsLeft - 1);
 
         isDivided = true;
+        hasCreatedChildNodes = true;
 
         for(int i = agents.Count - 1; i >= 0; i--)
         {

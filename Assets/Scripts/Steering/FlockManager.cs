@@ -52,7 +52,7 @@ public class FlockManager : MonoBehaviour
 
 
     private void HandleMovement()
-    { 
+    {
         TargetSteeringBehaviour.Target = _target;  
 
         _octtree.CreateNewTree();
