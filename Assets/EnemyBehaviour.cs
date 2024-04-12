@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[SelectionBase]
 public class EnemyBehaviour : MonoBehaviour
 {
 
@@ -12,10 +14,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     [SerializeField]
     private float _attackDistance = 50f;
-    [SerializeField]
-    private float _bulletSpread = 1f;
-    [SerializeField]
-    private LayerMask _hitMask;
+    
 
 
     public EnemyIdleState idleState;
@@ -27,8 +26,6 @@ public class EnemyBehaviour : MonoBehaviour
     public Transform _player;
     [HideInInspector]
     public Transform _thisTransform;
-    [SerializeField]
-    private Transform _shootPoint;
 
 
     // Start is called before the first frame update
@@ -55,16 +52,19 @@ public class EnemyBehaviour : MonoBehaviour
         _currentState.Enter(this);
     }
 
-    public void Shoot()
+    public void Shoot(float bulletSpread, Transform shootPoint, LayerMask hitMask, GameObject effect)
     {
-        float currentSpread = Random.Range(0, _bulletSpread);
+        float currentSpread = Random.Range(0, bulletSpread);
 
         Vector2 spread = Random.insideUnitCircle * currentSpread;
-        Vector3 direction = _shootPoint.forward + spread.x * _shootPoint.right + spread.y * Vector3.up;
+        Vector3 direction = shootPoint.forward + spread.x * shootPoint.right + spread.y * Vector3.up;
         direction.Normalize();
 
-        Debug.DrawRay(_shootPoint.position, direction * 100, Color.red, .3f);
-        if(Physics.Raycast(_shootPoint.position, direction, out RaycastHit hit, 100, _hitMask))
+        Debug.DrawRay(shootPoint.position, direction * 100, Color.red, .3f);
+        Transform effectTransform = Instantiate(effect, shootPoint.position, shootPoint.rotation).transform;
+        effectTransform.forward = direction;
+
+        if(Physics.Raycast(shootPoint.position, direction, out RaycastHit hit, 100, hitMask))
         {
             Debug.Log("Hit something");
             if(hit.collider.TryGetComponent(out TargetBehaviour targetBehaviour))

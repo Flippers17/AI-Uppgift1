@@ -26,4 +26,6 @@ public class BirdIdleControlState : BirdControlState
     {
         //throw new System.NotImplementedException();
     }
+
+    
 }

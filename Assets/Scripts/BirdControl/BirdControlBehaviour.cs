@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.XR;
+using static UnityEngine.Rendering.DebugUI;
 
 public class BirdControlBehaviour : MonoBehaviour
 {
@@ -31,12 +32,12 @@ public class BirdControlBehaviour : MonoBehaviour
     
     private BirdControlState _currentControlState;
 
-    [Space(15), Header("States"), SerializeField]
-    private BirdIdleControlState _idle;
+    [Space(15), Header("States")]
+    public BirdIdleControlState _idle;
 
-    [SerializeField] private BirdTargetControlBehaviour _targetingState;
-    [SerializeField] private BirdBlockControlBehaviour _blockState;
-    [SerializeField] private BirdAttackState _attackState;
+    public BirdTargetControlBehaviour _targetingState;
+    public BirdBlockControlBehaviour _blockState;
+    public BirdAttackState _attackState;
 
 
     private Camera _cam;
@@ -99,48 +100,40 @@ public class BirdControlBehaviour : MonoBehaviour
             return _cam.transform.position + ray.direction * 20;
         }
     }
-    
-    
+
+    public void TransitionState(BirdControlState state)
+    {
+        _currentControlState.ExitState(this);
+        _currentControlState = state;
+        _currentControlState.EnterState(this);
+    }
+
+
+
+    #region ControlEvents
+
     private void HandleBlock(bool state)
     {
-
-        if (state)
-        {
-            TransitionState(_blockState);
-        }
-        else if(_currentControlState == _blockState)
-        {
-            TransitionState(_idle);
-        }
+        _currentControlState.OnControlEvent(this, ControlEvent.Block, state);
     }
 
 
     private void FineControl(bool value)
     {
-        if(value)
-        {
-            TransitionState(_targetingState);
-        }
-        else if( _currentControlState == _targetingState)
-        {
-            TransitionState(_idle);
-        }
+        _currentControlState.OnControlEvent(this, ControlEvent.FineControl, value);
     }
 
 
     private void DoProjectileAttack()
     {
-        if(_currentControlState == _attackState)
-            return;
-
-        Vector3 averagePos = _flock.averagePos;
-        Debug.DrawLine(averagePos, averagePos + Vector3.up, Color.green, 5f);
-        if(Vector3.SqrMagnitude(averagePos - transform.position) > 64f)
-            return;
-        
-        TransitionState(_attackState);
+        _currentControlState.OnControlEvent(this, ControlEvent.Attack, false);
     }
 
+
+    #endregion
+
+
+    #region GetAndSet
 
     public Vector3 GetAverageFlockPos()
     {
@@ -151,19 +144,12 @@ public class BirdControlBehaviour : MonoBehaviour
     {
         return _aimPoint.position;
     }
-
-    public void TransitionToIdle()
+    
+    public Vector3 GetTargetPosition()
     {
-        TransitionState(_idle);
+        return _target.position;
     }
-
-    public void TransitionState(BirdControlState state)
-    {
-        _currentControlState.ExitState(this);
-        _currentControlState = state;
-        _currentControlState.EnterState(this);
-    }
-
+    
     public void SetTargetPosition(Vector3 targetPosition)
     {
         _target.position = targetPosition;
@@ -175,15 +161,17 @@ public class BirdControlBehaviour : MonoBehaviour
         _interacter.SetSize(size);
     }
 
-    public void StopCurrentInteraction()
-    {
-        _interacter.StopInteraction();
-    }
-
-    
 
     public void SetSteeringBehaviour(BehaviourList behaviourList)
     {
         _flock.SetSteeringBehaviour(behaviourList);
+    }
+
+    #endregion
+
+
+    public void StopCurrentInteraction()
+    {
+        _interacter.StopInteraction();
     }
 }

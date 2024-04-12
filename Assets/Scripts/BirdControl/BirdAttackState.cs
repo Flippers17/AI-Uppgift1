@@ -28,12 +28,22 @@ public class BirdAttackState : BirdControlState
 
         if(_attackTimer < 0)
         {
-            controlBehaviour.TransitionToIdle();
+            controlBehaviour.TransitionState(controlBehaviour._idle);
         }
     }
 
     public override void ExitState(BirdControlBehaviour controlBehaviour)
     {
         controlBehaviour.SetInteraction(FlockInteractionType.None, Vector3.zero);
+    }
+
+    protected override void HandleAttackTransition(BirdControlBehaviour controlBehaviour)
+    {
+        
+    }
+
+    protected override void HandleFineControlTransition(BirdControlBehaviour controlBehaviour, bool value)
+    {
+        
     }
 }

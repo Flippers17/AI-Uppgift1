@@ -15,6 +15,16 @@ public class EnemyAttackState : EnemyState
     private float _timeBetweenShot = .1f;
     private float _timer = 0f;
 
+    [SerializeField]
+    private float _bulletSpread = .3f;
+    [SerializeField]
+    private LayerMask _hitMask;
+    [SerializeField]
+    private Transform _shootPoint;
+    [SerializeField]
+    private GameObject _effect;
+
+
     public override void Enter(EnemyBehaviour behaviour)
     {
         //throw new System.NotImplementedException();
@@ -27,7 +37,7 @@ public class EnemyAttackState : EnemyState
         _timer -= deltaTime;
         if(_timer <= 0f)
         {
-            behaviour.Shoot();
+            behaviour.Shoot(_bulletSpread, _shootPoint, _hitMask, _effect);
             _currentBulletCount--;
             _timer = _timeBetweenShot;
         }

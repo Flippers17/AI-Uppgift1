@@ -29,4 +29,11 @@ public class BirdBlockControlBehaviour : BirdControlState
     {
         //throw new System.NotImplementedException();
     }
+
+
+    protected override void HandleBlockTransition(BirdControlBehaviour controlBehaviour, bool value)
+    {
+        if (!value)
+            controlBehaviour.TransitionState(controlBehaviour._idle);
+    }
 }
