@@ -113,6 +113,12 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void OnFineControlInput(InputAction.CallbackContext context)
     {
+        if (context.performed)
+            LockMouse(false);
+        else 
+            LockMouse(true);
+
+
         OnFineControl?.Invoke(context.performed);
     }
 
