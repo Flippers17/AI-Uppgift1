@@ -119,4 +119,9 @@ public class PlayerMovement : MonoBehaviour
     {
         _controller.Move(_velocity * Time.deltaTime);
     }
+
+    public void ResetVelocity()
+    {
+        _velocity = Vector3.zero;
+    }
 }

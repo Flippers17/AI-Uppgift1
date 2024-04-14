@@ -6,7 +6,7 @@ public class CheckpointManager : MonoBehaviour
 {
     public static CheckpointManager instance;
 
-    private Vector3 _currentCheckpoint = Vector3.zero;
+    private Vector3 _currentCheckpoint = new Vector3(0, 1, 0);
 
     private Transform _player;
 
@@ -23,6 +23,9 @@ public class CheckpointManager : MonoBehaviour
 
     public void TeleportPlayerToCheckpoint()
     {
+        _player.GetComponent<PlayerMovement>().ResetVelocity();
+        _player.GetComponent<CharacterController>().enabled = false;
         _player.position = _currentCheckpoint;
+        _player.GetComponent<CharacterController>().enabled = false;
     }
 }
