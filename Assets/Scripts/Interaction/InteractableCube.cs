@@ -14,7 +14,14 @@ public class InteractableCube : MonoBehaviour, IFlockInteractable
     private Rigidbody _rb;
 
     private FlockManager _flock;
-    
+
+    private Vector3 _startPosition;
+
+    private void OnEnable()
+    {
+        _startPosition = transform.position;
+    }
+
     public bool Interact(FlockInteractionType type, FlockManager flock)
     {   
         if(type != _interactionType)
@@ -36,5 +43,11 @@ public class InteractableCube : MonoBehaviour, IFlockInteractable
     {
         if (_beingInteractedWith)
             transform.position = _flock.averagePos;
+    }
+
+    private void OnDisable()
+    {
+        InteractableCube newCube = Instantiate(this, _startPosition, Quaternion.identity);
+        newCube.enabled = true;
     }
 }

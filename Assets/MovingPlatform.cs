@@ -22,6 +22,8 @@ public class MovingPlatform : MonoBehaviour
     private bool _loop = true;
 
     private bool _moving = false;
+    private bool _hasBeenTriggerd = false;
+
 
     private void Awake()
     {
@@ -32,11 +34,15 @@ public class MovingPlatform : MonoBehaviour
 
     public void TriggerMovement()
     {
+        if (_hasBeenTriggerd)
+            return;
+
         if(_positions.Count > 1)
         {
             transform.position = _positions[0];
             _currentIndex = 1;
             _moving = true;
+            _hasBeenTriggerd = true;
         }
     }
 

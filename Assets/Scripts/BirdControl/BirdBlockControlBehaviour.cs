@@ -12,6 +12,7 @@ public class BirdBlockControlBehaviour : BirdControlState
     public override void EnterState(BirdControlBehaviour controlBehaviour)
     {
         controlBehaviour.SetSteeringBehaviour(_behaviour);
+        controlBehaviour._anim.SetBool("Blocking", true);
     }
 
     public override void UpdateState(BirdControlBehaviour controlBehaviour, float deltaTime)
@@ -28,6 +29,7 @@ public class BirdBlockControlBehaviour : BirdControlState
     public override void ExitState(BirdControlBehaviour controlBehaviour)
     {
         //throw new System.NotImplementedException();
+        controlBehaviour._anim.SetBool("Blocking", false);
     }
 
 

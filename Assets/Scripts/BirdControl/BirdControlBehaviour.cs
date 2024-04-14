@@ -14,6 +14,7 @@ public class BirdControlBehaviour : MonoBehaviour
     [SerializeField]
     private PlayerInputHandler _input;
     public Health health;
+    public Animator _anim;
 
     [Space(15), SerializeField]
     private LayerMask _targetAimMask;

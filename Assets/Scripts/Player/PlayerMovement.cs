@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     private PlayerInputHandler _input;
+    [SerializeField]
+    private Animator _anim;
 
     [SerializeField]
     private CharacterController _controller;
@@ -52,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         _isGrounded = IsGrounded();
+        _anim.SetBool("Grounded", _isGrounded);
     }
 
     private void HandleMovement()
@@ -62,6 +65,11 @@ public class PlayerMovement : MonoBehaviour
         forward.y = 0;
         forward.Normalize();
 
+        if (moveInput.sqrMagnitude > 0)
+            _anim.SetBool("Walking", true);
+        else
+            _anim.SetBool("Walking", false);
+
         Vector3 right = _cam.transform.right;
         right.y = 0;
         right.Normalize();
@@ -69,6 +77,10 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movementVector = forward * (moveInput.y * _moveSpeed) + right * (moveInput.x * _moveSpeed);
         _velocity.x = movementVector.x;
         _velocity.z = movementVector.z;
+
+        if(movementVector.sqrMagnitude > 0)
+            transform.forward = movementVector;
+
         
         if (timeSinceJumped < 1)
             timeSinceJumped += Time.deltaTime;
@@ -83,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
             return;
 
         _velocity.y = _jumpVelocity;
+        _anim.SetTrigger("Jump");
         timeSinceJumped = 0;
     }
     
@@ -91,7 +104,10 @@ public class PlayerMovement : MonoBehaviour
         if (!_isGrounded)
             _velocity.y -= Time.deltaTime * _gravity;
         else if(timeSinceJumped > .2f)
+        {
+            //Reset jump animation trigger
             _velocity.y = -1;
+        }
     }
 
     private bool IsGrounded()
