@@ -182,10 +182,10 @@ MonoBehaviour:
   _interacter: {fileID: 0}
   _aimSurfaceDistance: 3
   _idle:
-    _behaviour: {fileID: 11400000, guid: 70467d68d77537340a0c9e1d513ff581, type: 2}
+    _behaviour: {fileID: 11400000, guid: a41445b31e1f74f44b0217edd6a07073, type: 2}
     _position: {x: 0, y: 5, z: 0}
   _targetingState:
-    _behaviour: {fileID: 11400000, guid: df9710ea783037f44948dafd972e1be2, type: 2}
+    _behaviour: {fileID: 11400000, guid: ac603e795c40f5e4c931aba3f5dc1210, type: 2}
     _interactionSize: {x: 9, y: 9, z: 9}
   _blockState:
     _behaviour: {fileID: 11400000, guid: 90f0c80b7cc24e844809d4f9a4a6763c, type: 2}

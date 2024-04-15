@@ -26,6 +26,9 @@ public class FlockManager : MonoBehaviour
     [SerializeField, Tooltip("If a Target steering behaviour is used, it's target would be this")]
     private Transform _target;
 
+    [SerializeField, Tooltip("The distance a bird has to be from the average pos to not count towards it")]
+    private float _averagePosThreshold = 20f;
+
 
     public Vector3 averagePos
     {
@@ -48,6 +51,7 @@ public class FlockManager : MonoBehaviour
     private void Update()
     {
         HandleMovement();
+        CalculateAveragePosition();
     }
 
 
@@ -61,6 +65,7 @@ public class FlockManager : MonoBehaviour
         float weightMultiplier = GetWeightMultiplier();
 
         MoveAgents(weightMultiplier);
+        
     }
 
 
@@ -95,7 +100,7 @@ public class FlockManager : MonoBehaviour
     private void MoveAgents(float weightMultiplier)
     {
         List<FlockAgent> context = new List<FlockAgent>(8);
-        averagePos = Vector3.zero;
+        
 
         if(_behaviourList)
         {
@@ -105,7 +110,6 @@ public class FlockManager : MonoBehaviour
                 GetContext(agent, ref context);
                 agent.CalculateMovement(context, _behaviourList.items, behaviourCount, weightMultiplier);
                 context.Clear();
-                averagePos += agent.position;
             }
         }
         else
@@ -116,13 +120,29 @@ public class FlockManager : MonoBehaviour
                 GetContext(agent, ref context);
                 agent.CalculateMovement(context, _steeringBehaviours, behaviourCount, weightMultiplier);
                 context.Clear();
-                averagePos += agent.position;
             }
         }
         
 
-        averagePos /= _agents.Count;
+        
     }
+
+
+    private void CalculateAveragePosition()
+    {
+        averagePos = Vector3.zero;
+        //List<Vector3> ignoredPositions = new List<Vector3>();
+        int agentCount = _agents.Count;
+
+        for(int i =  0; i < agentCount; i++)
+        {
+            averagePos += _agents[i].position;
+        }
+
+
+        averagePos /= agentCount;
+    }
+
 
     private void AddAgentsToOcttree()
     {
