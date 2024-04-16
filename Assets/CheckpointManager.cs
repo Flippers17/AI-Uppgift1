@@ -26,6 +26,6 @@ public class CheckpointManager : MonoBehaviour
         _player.GetComponent<PlayerMovement>().ResetVelocity();
         _player.GetComponent<CharacterController>().enabled = false;
         _player.position = _currentCheckpoint;
-        _player.GetComponent<CharacterController>().enabled = false;
+        _player.GetComponent<CharacterController>().enabled = true;
     }
 }
