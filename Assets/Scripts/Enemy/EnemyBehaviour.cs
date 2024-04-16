@@ -78,7 +78,10 @@ public class EnemyBehaviour : MonoBehaviour
 
     public bool PlayerWithinRange()
     {
-        return Vector3.SqrMagnitude(_player.position - transform.position) < _attackDistance * _attackDistance;
+        if (Vector3.SqrMagnitude(_player.position - transform.position) < _attackDistance * _attackDistance)
+            return !Physics.Raycast(transform.position, _player.position - transform.position, _attackDistance, attackState._viewObstructionMask);
+
+        return false;
     }
 
     public void RotateTowardsTarget(Vector3 target)

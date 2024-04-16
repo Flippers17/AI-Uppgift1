@@ -233,6 +233,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 3
   _invincibillityTime: 1
+  _regenerate: 1
+  _regenerationTime: 3
   OnDie:
     m_PersistentCalls:
       m_Calls: []

@@ -29,6 +29,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7957530239751864260}
+  - {fileID: 8569519657242837176}
   m_Father: {fileID: 7630341224875705764}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -129,6 +130,7 @@ GameObject:
   - component: {fileID: 7630341224875705761}
   - component: {fileID: 7630341224875705791}
   - component: {fileID: 7630341224875705760}
+  - component: {fileID: 3865590103104750099}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -215,10 +217,13 @@ MonoBehaviour:
   attackState:
     _maxBulletCount: 30
     _timeBetweenShot: 0.3
-    _bulletSpread: 0.3
+    _bulletSpread: 0.1
     _hitMask:
       serializedVersion: 2
       m_Bits: 512
+    _viewObstructionMask:
+      serializedVersion: 2
+      m_Bits: 128
     _shootPoint: {fileID: 7630341224933103640}
     _effect: {fileID: 2098124981323480657, guid: 77a513c568b51624a877f9570c8b7213,
       type: 3}
@@ -239,14 +244,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 2
-  _invincibillityTime: 0.1
+  _health: 0
+  _invincibillityTime: 0
+  _regenerate: 0
+  _regenerationTime: 3
   OnDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7630341224875705765}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 3865590103104750099}
+        m_TargetAssemblyTypeName: Destroyer, Assembly-CSharp
+        m_MethodName: DoDestroy
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -285,6 +293,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2393401101760883017}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3865590103104750099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7630341224875705765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2228c9cd12b864fa42e97d225539a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destroyOnAwake: 0
+  _destroyTimer: 0
+  _gameObjectToSpawn: {fileID: 9010652756860620557, guid: fd898cbefa353ba43b48368ff8c142b4,
+    type: 3}
 --- !u!1 &7630341224933103641
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,6 +352,87 @@ Transform:
   m_Father: {fileID: 7630341224875705764}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &4226470434348680953
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7630341224085936626}
+    m_Modifications:
+    - target: {fileID: 5497343519442110017, guid: fd898cbefa353ba43b48368ff8c142b4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497343519442110017, guid: fd898cbefa353ba43b48368ff8c142b4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497343519442110017, guid: fd898cbefa353ba43b48368ff8c142b4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497343519442110017, guid: fd898cbefa353ba43b48368ff8c142b4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497343519442110017, guid: fd898cbefa353ba43b48368ff8c142b4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497343519442110017, guid: fd898cbefa353ba43b48368ff8c142b4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497343519442110017, guid: fd898cbefa353ba43b48368ff8c142b4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497343519442110017, guid: fd898cbefa353ba43b48368ff8c142b4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497343519442110017, guid: fd898cbefa353ba43b48368ff8c142b4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497343519442110017, guid: fd898cbefa353ba43b48368ff8c142b4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497343519442110017, guid: fd898cbefa353ba43b48368ff8c142b4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010652756860620557, guid: fd898cbefa353ba43b48368ff8c142b4,
+        type: 3}
+      propertyPath: m_Name
+      value: Blood
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fd898cbefa353ba43b48368ff8c142b4, type: 3}
+--- !u!198 &2393401101760883017 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1986195087255089072, guid: fd898cbefa353ba43b48368ff8c142b4,
+    type: 3}
+  m_PrefabInstance: {fileID: 4226470434348680953}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8569519657242837176 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5497343519442110017, guid: fd898cbefa353ba43b48368ff8c142b4,
+    type: 3}
+  m_PrefabInstance: {fileID: 4226470434348680953}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7630341225742850095
 PrefabInstance:
   m_ObjectHideFlags: 0

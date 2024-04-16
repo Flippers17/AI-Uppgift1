@@ -19,6 +19,7 @@ public class EnemyAttackState : EnemyState
     private float _bulletSpread = .3f;
     [SerializeField]
     private LayerMask _hitMask;
+    public LayerMask _viewObstructionMask;
     [SerializeField]
     private Transform _shootPoint;
     [SerializeField]
