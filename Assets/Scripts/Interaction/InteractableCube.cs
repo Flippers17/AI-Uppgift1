@@ -25,6 +25,8 @@ public class InteractableCube : MonoBehaviour, IFlockInteractable
     [SerializeField]
     private Transform _dropPositionEffect;
 
+    private bool _spawnNewOnDisable = true;
+
 
     private void OnEnable()
     {
@@ -79,8 +81,19 @@ public class InteractableCube : MonoBehaviour, IFlockInteractable
         }
     }
 
+
+    public void DestroyForever()
+    {
+        _spawnNewOnDisable = false;
+        Destroy(gameObject);
+    }
+
+
     private void OnDisable()
     {
+        if (!_spawnNewOnDisable)
+            return;
+
         InteractableCube newCube = Instantiate(this, _startPosition, Quaternion.identity);
         newCube.enabled = true;
     }
