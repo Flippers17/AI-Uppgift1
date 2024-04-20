@@ -189,9 +189,13 @@ MonoBehaviour:
     _interactionSize: {x: 9, y: 9, z: 9}
   _blockState:
     _behaviour: {fileID: 11400000, guid: 90f0c80b7cc24e844809d4f9a4a6763c, type: 2}
+    _cameraShakeMagnitude: 0.03
+    _cameraShakeDamping: 0.9
   _attackState:
     _behaviour: {fileID: 11400000, guid: ec64d575d1cb2fc4c88d8d7cdab70bcd, type: 2}
-    _interactionSize: {x: 5, y: 5, z: 5}
+    _interactionSize: {x: 7, y: 7, z: 7}
+    _cameraShakeMagnitude: 0.3
+    _cameraShakeDamping: 0.8
 --- !u!114 &8157149097084768853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,6 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 3
+  _health: 0
   _invincibillityTime: 1
   _regenerate: 1
   _regenerationTime: 3

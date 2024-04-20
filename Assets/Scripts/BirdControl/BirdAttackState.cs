@@ -8,6 +8,9 @@ public class BirdAttackState : BirdControlState
     private float _attackTimer;
 
     [SerializeField] private Vector3 _interactionSize;
+    [SerializeField] private float _cameraShakeMagnitude = .1f;
+    [SerializeField, Range(0, 1)] private float _cameraShakeDamping = .3f;
+    //[SerializeField] private float _cameraShakeDuration = .3f;
 
     public BirdAttackState(BehaviourList behaviour) : base(behaviour)
     {
@@ -20,6 +23,8 @@ public class BirdAttackState : BirdControlState
         _attackTimer = (distance / _behaviour.maxSpeed) + .2f;
         controlBehaviour.SetSteeringBehaviour(_behaviour);
         controlBehaviour.SetInteraction(FlockInteractionType.Attack, _interactionSize);
+
+        CameraShaker.instance.TriggerShake(99f, _cameraShakeMagnitude, _cameraShakeDamping);
     }
 
     public override void UpdateState(BirdControlBehaviour controlBehaviour, float deltaTime)
@@ -35,6 +40,7 @@ public class BirdAttackState : BirdControlState
     public override void ExitState(BirdControlBehaviour controlBehaviour)
     {
         controlBehaviour.SetInteraction(FlockInteractionType.None, Vector3.zero);
+        CameraShaker.instance.CancleShake(_cameraShakeMagnitude);
     }
 
     protected override void HandleAttackTransition(BirdControlBehaviour controlBehaviour)

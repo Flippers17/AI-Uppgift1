@@ -23,7 +23,7 @@ public class EnemyAttackState : EnemyState
     [SerializeField]
     private Transform _shootPoint;
     [SerializeField]
-    private GameObject _effect;
+    private LineRenderer _effect;
 
 
     public override void Enter(EnemyBehaviour behaviour)

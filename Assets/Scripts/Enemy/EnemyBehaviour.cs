@@ -52,7 +52,7 @@ public class EnemyBehaviour : MonoBehaviour
         _currentState.Enter(this);
     }
 
-    public void Shoot(float bulletSpread, Transform shootPoint, LayerMask hitMask, GameObject effect)
+    public void Shoot(float bulletSpread, Transform shootPoint, LayerMask hitMask, LineRenderer effect)
     {
         float currentSpread = Random.Range(0, bulletSpread);
 
@@ -60,20 +60,21 @@ public class EnemyBehaviour : MonoBehaviour
         Vector3 direction = shootPoint.forward + spread.x * shootPoint.right + spread.y * Vector3.up;
         direction.Normalize();
 
-        Debug.DrawRay(shootPoint.position, direction * 100, Color.red, .3f);
-        Transform effectTransform = Instantiate(effect, shootPoint.position, shootPoint.rotation).transform;
-        effectTransform.forward = direction;
+        //Debug.DrawRay(shootPoint.position, direction * 100, Color.red, .3f);
+        LineRenderer currentEffect = Instantiate(effect, shootPoint.position, shootPoint.rotation);
+        currentEffect.transform.forward = direction;
 
         if(Physics.Raycast(shootPoint.position, direction, out RaycastHit hit, 100, hitMask))
         {
-            Debug.Log("Hit something");
+            currentEffect.SetPosition(1, new Vector3(0, 0, hit.distance));
+            //Debug.Log("Hit something");
             if(hit.collider.TryGetComponent(out TargetBehaviour targetBehaviour))
             {
                 targetBehaviour.TakeDamage(1);
             }
         }
 
-        Debug.Log("Shoot");
+        //Debug.Log("Shoot");
     }
 
     public bool PlayerWithinRange()

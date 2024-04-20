@@ -220,12 +220,12 @@ MonoBehaviour:
     _bulletSpread: 0.1
     _hitMask:
       serializedVersion: 2
-      m_Bits: 512
+      m_Bits: 640
     _viewObstructionMask:
       serializedVersion: 2
       m_Bits: 128
     _shootPoint: {fileID: 7630341224933103640}
-    _effect: {fileID: 2098124981323480657, guid: 77a513c568b51624a877f9570c8b7213,
+    _effect: {fileID: 4671000665077796390, guid: 77a513c568b51624a877f9570c8b7213,
       type: 3}
   reloadState:
     _reloadTime: 3

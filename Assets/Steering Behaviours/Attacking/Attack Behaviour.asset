@@ -21,8 +21,8 @@ MonoBehaviour:
     weight: 4
     forceMultiplier: 10
   - behaviour: {fileID: 11400000, guid: 1838a8e03a23f7c429ec11e328e6c4c2, type: 2}
-    weight: 7
-    forceMultiplier: 10
+    weight: 15
+    forceMultiplier: 35
   - behaviour: {fileID: 11400000, guid: 945cf9c8dc62cc142b65f3849726aa3b, type: 2}
     weight: 10
     forceMultiplier: 10
