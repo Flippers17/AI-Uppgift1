@@ -23,6 +23,7 @@ public class CheckpointManager : MonoBehaviour
 
     public void TeleportPlayerToCheckpoint()
     {
+        DeathResetScreen.instance.TriggerScreen();
         _player.GetComponent<PlayerMovement>().ResetVelocity();
         _player.GetComponent<CharacterController>().enabled = false;
         _player.position = _currentCheckpoint;
