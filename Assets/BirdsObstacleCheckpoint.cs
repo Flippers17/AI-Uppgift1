@@ -51,6 +51,7 @@ public class BirdsObstacleCheckpoint : MonoBehaviour, IFlockInteractable
             {
                 _active = false;
                 _course.AddCheckpoint();
+                OnInactive?.Invoke();
             }
         }
     }

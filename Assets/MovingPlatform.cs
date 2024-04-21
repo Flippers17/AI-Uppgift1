@@ -24,11 +24,29 @@ public class MovingPlatform : MonoBehaviour
     private bool _moving = false;
     private bool _hasBeenTriggerd = false;
 
+    private CharacterController _playerOnPlatform;
+
 
     private void Awake()
     {
         if (_triggerFromStart)
             TriggerMovement();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            _playerOnPlatform = other.GetComponent<CharacterController>();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            _playerOnPlatform = null;
+        }
     }
 
 
@@ -56,9 +74,15 @@ public class MovingPlatform : MonoBehaviour
         if (!_moving)
             return;
 
-        transform.position = Vector3.MoveTowards(transform.position, _positions[_currentIndex], _speed * Time.deltaTime);
+        float currentSpeed = _speed * Time.deltaTime;
 
-        if(Vector3.SqrMagnitude(transform.position - _positions[_currentIndex]) < 2f)
+        transform.position = Vector3.MoveTowards(transform.position, _positions[_currentIndex], currentSpeed);
+        Vector3 movingDir = _positions[_currentIndex] - transform.position;
+
+        if (_playerOnPlatform)
+            _playerOnPlatform.Move(movingDir.normalized * currentSpeed);
+
+        if(Vector3.SqrMagnitude(movingDir) < 2f)
         {
             _moving = false;
 
