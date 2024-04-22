@@ -15,8 +15,8 @@ MonoBehaviour:
   maxSpeed: 15
   items:
   - behaviour: {fileID: 11400000, guid: ddf2f28bf7ec1ba428f47c1a8ad710c8, type: 2}
-    weight: 0
-    forceMultiplier: 1
+    weight: 4
+    forceMultiplier: 4
   - behaviour: {fileID: 11400000, guid: b67c6c7495c6e504b902c5982494598a, type: 2}
     weight: 5
     forceMultiplier: 1

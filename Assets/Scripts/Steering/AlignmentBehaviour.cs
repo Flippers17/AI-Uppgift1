@@ -21,6 +21,7 @@ public class AlignmentBehaviour : SteeringBehaviour
         }
 
         averageVelocity /= contextCount;
+        averageVelocity -= agentToMove.velocity;
         averageVelocity *= _alignmentForce * forceMultiplier;
 
         return averageVelocity;
