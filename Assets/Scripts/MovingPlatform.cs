@@ -103,6 +103,7 @@ public class MovingPlatform : MonoBehaviour
 }
 
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(MovingPlatform))]
 public class MovingPlatformEditor : Editor
 {
@@ -126,3 +127,5 @@ public class MovingPlatformEditor : Editor
         }
     }
 }
+
+#endif

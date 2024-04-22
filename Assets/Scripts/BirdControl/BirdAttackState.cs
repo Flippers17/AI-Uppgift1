@@ -10,6 +10,7 @@ public class BirdAttackState : BirdControlState
     [SerializeField] private Vector3 _interactionSize;
     [SerializeField] private float _cameraShakeMagnitude = .1f;
     [SerializeField, Range(0, 1)] private float _cameraShakeDamping = .3f;
+    [SerializeField] private AudioPlayer _audioPlayer;
     //[SerializeField] private float _cameraShakeDuration = .3f;
 
     public BirdAttackState(BehaviourList behaviour) : base(behaviour)
@@ -23,6 +24,9 @@ public class BirdAttackState : BirdControlState
         _attackTimer = (distance / _behaviour.maxSpeed) + .2f;
         controlBehaviour.SetSteeringBehaviour(_behaviour);
         controlBehaviour.SetInteraction(FlockInteractionType.Attack, _interactionSize);
+        
+        if(_audioPlayer)
+            _audioPlayer.PlaySound();
 
         CameraShaker.instance.TriggerShake(99f, _cameraShakeMagnitude, _cameraShakeDamping);
     }

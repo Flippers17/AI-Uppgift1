@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BirdAudioManager : MonoBehaviour
+public class AudioPlayer : MonoBehaviour
 {
     [SerializeField]
     private AudioSource _AudioSource;
@@ -25,6 +25,8 @@ public class BirdAudioManager : MonoBehaviour
 
     private float _timer = 0f;
 
+    public bool playContinously = true;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +39,9 @@ public class BirdAudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!playContinously)
+            return;
+
         if( _timer > 0f)
         {
             _timer -= Time.deltaTime;
@@ -49,7 +54,7 @@ public class BirdAudioManager : MonoBehaviour
     }
 
 
-    private void PlaySound()
+    public void PlaySound()
     {
         _AudioSource.pitch = Random.Range(_minPitch, _maxPitch);
         _AudioSource.Play();

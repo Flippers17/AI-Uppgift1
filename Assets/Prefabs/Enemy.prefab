@@ -265,7 +265,19 @@ MonoBehaviour:
         m_CallState: 2
   OnHealthUpdate:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2393401101760883017}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7630341224875705760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +371,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7630341224085936626}
     m_Modifications:
+    - target: {fileID: 3413257729375301686, guid: fd898cbefa353ba43b48368ff8c142b4,
+        type: 3}
+      propertyPath: _destroyOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5497343519442110017, guid: fd898cbefa353ba43b48368ff8c142b4,
         type: 3}
       propertyPath: m_RootOrder
