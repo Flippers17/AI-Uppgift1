@@ -8,6 +8,9 @@ public class SeparationBehaviour : SteeringBehaviour
     [SerializeField]
     private float separationStrength = 100f;
 
+    [SerializeField]
+    private float _protectedRange = 3f;
+
     public override Vector3 CalculateMovement(FlockAgent agentToMove, List<FlockAgent> context, float forceMultiplier)
     {
         int contextCount = context.Count;
@@ -19,12 +22,14 @@ public class SeparationBehaviour : SteeringBehaviour
 
         Vector3 currentVector;
 
+        float squaredProtectedRange = _protectedRange * _protectedRange;
+
         for(int i = 0; i < contextCount; i++)
         {
             currentVector = (context[i].position - agentToMove.position);
 
             float currentSquareMagnitude = currentVector.sqrMagnitude;
-            if (currentSquareMagnitude != 0)
+            if (currentSquareMagnitude < squaredProtectedRange)
                 separationVector -= currentVector * ((separationStrength * forceMultiplier) / currentSquareMagnitude);
         }
 

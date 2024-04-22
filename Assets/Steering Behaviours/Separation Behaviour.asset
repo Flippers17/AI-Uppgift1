@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Separation Behaviour
   m_EditorClassIdentifier: 
   separationStrength: 1000
+  _protectedRange: 2
