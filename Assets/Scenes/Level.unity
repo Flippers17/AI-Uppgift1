@@ -21778,12 +21778,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid:
-    _size: {x: 10, y: 10, z: 10}
-    _nodeSize: {x: 1, y: 1, z: 1}
+    _size: {x: 50, y: 50, z: 50}
+    _nodeSize: {x: 2, y: 2, z: 2}
   backBottomLeftGridCorner: {x: 0, y: 0, z: 0}
   gridObstacleMask:
     serializedVersion: 2
     m_Bits: 128
+  _drawGizmos: 0
 --- !u!4 &984770529 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7139639304723154366, guid: dd6b119552e85c148b5acf3f2cfdcc68,
@@ -35679,17 +35680,17 @@ PrefabInstance:
     - target: {fileID: 1587792866160110989, guid: 6c21de20799771542b34d4af7e1c7c48,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.06305472
+      value: 0.063054696
       objectReference: {fileID: 0}
     - target: {fileID: 1587792866160110989, guid: 6c21de20799771542b34d4af7e1c7c48,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016652017
+      value: -0.000000018236767
       objectReference: {fileID: 0}
     - target: {fileID: 1587792866160110989, guid: 6c21de20799771542b34d4af7e1c7c48,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000010520816
+      value: 0.0000000011522064
       objectReference: {fileID: 0}
     - target: {fileID: 1587792866759595556, guid: 6c21de20799771542b34d4af7e1c7c48,
         type: 3}
