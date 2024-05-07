@@ -24,6 +24,12 @@ public class FlockPathfinding : MonoBehaviour
         Debug.Log(grid.nodes.Length);
     }
 
+
+    //public 
+
+
+
+
     private void OnDrawGizmosSelected()
     {
         if (!_drawGizmos)
