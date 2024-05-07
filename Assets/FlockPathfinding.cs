@@ -14,6 +14,9 @@ public class FlockPathfinding : MonoBehaviour
     [SerializeField]
     private LayerMask gridObstacleMask;
 
+    [SerializeField]
+    private bool _drawGizmos = true;
+
 
     public void GenerateGrid()
     {
@@ -23,6 +26,9 @@ public class FlockPathfinding : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        if (!_drawGizmos)
+            return;
+
         if(grid == null)
             return;
 
