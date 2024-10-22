@@ -28,9 +28,7 @@ public class FlockAgent : MonoBehaviour
 
     [SerializeField]
     private bool _addAgentToMainFlock = true;
-    //public List<SteeringBehaviourItems> steeringBehaviours = new List<SteeringBehaviourItems>();
 
-    //private float _totalWeight = 1f;
 
     [SerializeField]
     private bool _debugAgent = false;
@@ -53,15 +51,6 @@ public class FlockAgent : MonoBehaviour
 
     private void OnValidate()
     {
-        //if(steeringBehaviours.Count > 0)
-        //{
-        //    _totalWeight = 0;
-        //    for(int i = 0; i < steeringBehaviours.Count; i++)
-        //    {
-        //        _totalWeight += steeringBehaviours[i].weight;
-        //    }
-        //}
-
         viewAngleCos = Mathf.Cos(viewAngle);
     }
 
@@ -94,11 +83,11 @@ public class FlockAgent : MonoBehaviour
             force += behaviours[i].behaviour.CalculateMovement(this, context, behaviours[i].forceMultiplier) * (behaviours[i].weight * weightMultiplier);
         }
 
-        force = force * Time.deltaTime;
+        force = force * deltaTime;
         Vector3 newVelocity = velocity + force;
 
         if(newVelocity.sqrMagnitude > _maxSpeed * _maxSpeed && newVelocity.sqrMagnitude > velocity.sqrMagnitude)
-            newVelocity = newVelocity.normalized * (velocity.magnitude - (_deceleration * Time.deltaTime));
+            newVelocity = newVelocity.normalized * (velocity.magnitude - (_deceleration * deltaTime));
 
         velocity = newVelocity;
     }

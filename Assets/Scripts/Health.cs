@@ -39,7 +39,6 @@ public class Health : MonoBehaviour
         _invincibleTimer = _invincibillityTime;
         _regenTimer = _regenerationTime;
 
-        Debug.Log("Took damage");
         if (_health <= 0)
             Die();
     }
@@ -88,6 +87,5 @@ public class Health : MonoBehaviour
     public void Die()
     {
         OnDie?.Invoke();
-        Debug.Log("Died");
     }
 }

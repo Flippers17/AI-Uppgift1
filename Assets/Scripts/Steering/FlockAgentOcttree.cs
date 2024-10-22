@@ -205,14 +205,6 @@ public class FlockAgentOcttreeNode
         neighbouringNodes[3] = (boundsPosition + new Vector3(0, -halfSize.y, 0));
         neighbouringNodes[4] = (boundsPosition + new Vector3(0, 0, halfSize.z));
         neighbouringNodes[5] = (boundsPosition + new Vector3(0, 0, -halfSize.z));
-        //neighbouringNodes.Add(boundsPosition + new Vector3(halfSize.x, halfSize.y, halfSize.z));
-        //neighbouringNodes.Add(boundsPosition + new Vector3(-halfSize.x, halfSize.y, halfSize.z));
-        //neighbouringNodes.Add(boundsPosition + new Vector3(halfSize.x, -halfSize.y, halfSize.z));
-        //neighbouringNodes.Add(boundsPosition + new Vector3(-halfSize.x, -halfSize.y, halfSize.z));
-        //neighbouringNodes.Add(boundsPosition + new Vector3(halfSize.x, halfSize.y, -halfSize.z));
-        //neighbouringNodes.Add(boundsPosition + new Vector3(-halfSize.x, halfSize.y, -halfSize.z));
-        //neighbouringNodes.Add(boundsPosition + new Vector3(halfSize.x, -halfSize.y, -halfSize.z));
-        //neighbouringNodes.Add(boundsPosition + new Vector3(-halfSize.x, -halfSize.y, -halfSize.z));
 
         Vector3 currentVector;
         float squaredRadius = agent.sightRadius * agent.sightRadius;

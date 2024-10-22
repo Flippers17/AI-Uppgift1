@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractableCube : MonoBehaviour, IFlockInteractable
+public class InteractableCube : MonoBehaviour, IFlockInteractable, IKillboxable
 {
     [SerializeField]
     private FlockInteractionType _interactionType;
@@ -51,7 +51,9 @@ public class InteractableCube : MonoBehaviour, IFlockInteractable
     public void StopInteract()
     {
         _beingInteractedWith = false;
-        _rb.isKinematic = false;
+
+        if(_rb)
+            _rb.isKinematic = false;
 
 
         if (_dropPositionEffect)
@@ -89,12 +91,18 @@ public class InteractableCube : MonoBehaviour, IFlockInteractable
     }
 
 
+    public void Kill()
+    {
+        _rb.velocity = Vector3.zero;
+        transform.position = _startPosition;
+    }
+
     private void OnDisable()
     {
-        if (!_spawnNewOnDisable)
-            return;
+        //if (!_spawnNewOnDisable)
+        //    return;
 
-        InteractableCube newCube = Instantiate(this, _startPosition, Quaternion.identity);
-        newCube.enabled = true;
+        //InteractableCube newCube = Instantiate(this, _startPosition, Quaternion.identity);
+        //newCube.enabled = true;
     }
 }

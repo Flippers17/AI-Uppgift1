@@ -28,7 +28,6 @@ public class EnemyAttackState : EnemyState
 
     public override void Enter(EnemyBehaviour behaviour)
     {
-        //throw new System.NotImplementedException();
         behaviour._anim.SetBool("Attacking", true);
     }
 
@@ -36,6 +35,7 @@ public class EnemyAttackState : EnemyState
     {
         behaviour.RotateTowardsTarget(behaviour._player.position);
         _timer -= deltaTime;
+        
         if(_timer <= 0f)
         {
             behaviour.Shoot(_bulletSpread, _shootPoint, _hitMask, _effect);
@@ -43,6 +43,9 @@ public class EnemyAttackState : EnemyState
             _timer = _timeBetweenShot;
         }
 
+        
+        
+        
         if(_currentBulletCount <= 0)
         {
             behaviour.TransitionToState(behaviour.reloadState);
@@ -52,7 +55,6 @@ public class EnemyAttackState : EnemyState
     public override void Exit(EnemyBehaviour behaviour)
     {
         behaviour._anim.SetBool("Attacking", false);
-        //throw new System.NotImplementedException();
     }
 
 

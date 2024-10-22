@@ -56,25 +56,24 @@ public class EnemyBehaviour : MonoBehaviour
     {
         float currentSpread = Random.Range(0, bulletSpread);
 
-        Vector2 spread = Random.insideUnitCircle * currentSpread;
+        Vector2 spread = Random.insideUnitCircle.normalized * currentSpread;
         Vector3 direction = shootPoint.forward + spread.x * shootPoint.right + spread.y * Vector3.up;
         direction.Normalize();
 
-        //Debug.DrawRay(shootPoint.position, direction * 100, Color.red, .3f);
+
         LineRenderer currentEffect = Instantiate(effect, shootPoint.position, shootPoint.rotation);
         currentEffect.transform.forward = direction;
 
+        //If it hit something
         if(Physics.Raycast(shootPoint.position, direction, out RaycastHit hit, 100, hitMask))
         {
             currentEffect.SetPosition(1, new Vector3(0, 0, hit.distance));
-            //Debug.Log("Hit something");
             if(hit.collider.TryGetComponent(out TargetBehaviour targetBehaviour))
             {
                 targetBehaviour.TakeDamage(1);
             }
         }
 
-        //Debug.Log("Shoot");
     }
 
     public bool PlayerWithinRange()

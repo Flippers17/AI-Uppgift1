@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public interface IKillboxable
+{
+    public void Kill();
+}
+
 public class Killbox : MonoBehaviour
 {
     [SerializeField]
@@ -19,7 +25,12 @@ public class Killbox : MonoBehaviour
         }
         else if((1 << other.gameObject.layer & _nonPlayerMask) != 0)
         {
-            Destroy(other.gameObject);
+            if(other.TryGetComponent(out IKillboxable killboxable))
+            {
+                killboxable.Kill();
+            }
+            else
+               Destroy(other.gameObject);
         }
     }
 }

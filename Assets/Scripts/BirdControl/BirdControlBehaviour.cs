@@ -31,16 +31,19 @@ public class BirdControlBehaviour : MonoBehaviour
     [SerializeField] private float _aimSurfaceDistance = 3f;
     private Vector3 _aimSurfaceNormal;
     
-    private BirdControlState _currentControlState;
 
+    
+    
     [Space(15), Header("States")]
     public BirdIdleControlState _idle;
-
     public BirdTargetControlBehaviour _targetingState;
     public BirdBlockControlBehaviour _blockState;
     public BirdAttackState _attackState;
 
+    private BirdControlState _currentControlState;
 
+    
+    
     private Camera _cam;
 
 
@@ -62,7 +65,7 @@ public class BirdControlBehaviour : MonoBehaviour
     }
 
 
-    // Start is called before the first frame update
+
     void Start()
     {
         _flock = FlockManager.mainFlock;
@@ -72,7 +75,7 @@ public class BirdControlBehaviour : MonoBehaviour
         _currentControlState.EnterState(this);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         _aimPoint.position = HandleAim();

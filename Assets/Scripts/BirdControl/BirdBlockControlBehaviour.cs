@@ -27,14 +27,12 @@ public class BirdBlockControlBehaviour : BirdControlState
 
         if(Vector3.SqrMagnitude(controlBehaviour.thisTransform.position - controlBehaviour.GetAverageFlockPos()) < 25)
         {
-            Debug.Log("Blocking");
             controlBehaviour.health.SetInvincibility(1f);
         }
     }
 
     public override void ExitState(BirdControlBehaviour controlBehaviour)
     {
-        //throw new System.NotImplementedException();
         controlBehaviour._anim.SetBool("Blocking", false);
         CameraShaker.instance.CancleShake(_cameraShakeMagnitude);
     }

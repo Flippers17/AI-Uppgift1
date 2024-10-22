@@ -59,11 +59,11 @@ public class ObstacleAvoidanceBehaviour : SteeringBehaviour
                     return Vector3.zero;
 
                 //Debug.DrawRay(agentToMove.position, currentDir * agentToMove.sightRadius, Color.green);
-                return currentDir * (avoidanceForce * forceMultiplier);
+                return (currentDir - agentToMove.forward) * (avoidanceForce * forceMultiplier);
             }
         }
 
-        return bestDir * (avoidanceForce * forceMultiplier);
+        return (bestDir - agentToMove.forward) * (avoidanceForce * forceMultiplier);
 
     }
 

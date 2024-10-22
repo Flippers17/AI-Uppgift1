@@ -11,7 +11,8 @@ public class BirdAttackState : BirdControlState
     [SerializeField] private float _cameraShakeMagnitude = .1f;
     [SerializeField, Range(0, 1)] private float _cameraShakeDamping = .3f;
     [SerializeField] private AudioPlayer _audioPlayer;
-    //[SerializeField] private float _cameraShakeDuration = .3f;
+
+
 
     public BirdAttackState(BehaviourList behaviour) : base(behaviour)
     {
@@ -47,6 +48,8 @@ public class BirdAttackState : BirdControlState
         CameraShaker.instance.CancleShake(_cameraShakeMagnitude);
     }
 
+
+    //The transitions below are not implemented for this state. This is intentional
     protected override void HandleAttackTransition(BirdControlBehaviour controlBehaviour)
     {
         
